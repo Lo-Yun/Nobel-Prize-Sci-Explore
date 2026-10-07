@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% set lv = ui.levels[level] %}
+{% block title %}{{ meta.title }}｜{{ meta.year }} {{ ui.fields[meta.field] }}｜{{ ui.site_name }}{% endblock %}
+{% block description %}{{ fm.summary or meta.subtitle }}{% endblock %}
+{% block body_class %}page-prize field-{{ meta.field }} level-{{ level }}{% endblock %}
+
+{% block nav %}
+  {% for lg in other_langs %}
+    <a class="chip" href="{{ other_lang_url(lg) }}" hreflang="{{ lg }}">{{ cfg.languages[lg].label if cfg.languages[lg] else lg }}</a>
+  {% endfor %}
+  <a class="chip" href="{{ home_url }}">{{ ui.home }}</a>
+{% endblock %}
+
+{% block main %}
+<article class="prize" data-progress-key="{{ progress_key }}" data-level="{{ level }}">
+  {% if status != "final" %}
+  <p class="draft-banner"><strong>{{ ui.draft_badge if status == "draft" else ui.review_badge }}</strong> {{ ui.draft_notice }}</p>
+  {% endif %}
+
+  <header class="prize-hero">
+    <div class="prize-hero__text">
+      <p class="eyebrow"><span class="year">{{ meta.year }}</span> {{ ui.fields[meta.field] }}</p>
+      <h1>{{ fm.title or meta.title }}</h1>
+      {% if fm.summary %}<p class="lede">{{ fm.summary }}</p>{% endif %}
+      <ul class="laureates">
+        {% for p in meta.laureates %}
+        <li><span class="laureates__name">{{ p.name }}</span> <span class="laureates__orig">{{ p.original }}{% if p.life %} · {{ p.life }}{% endif %}</span></li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% if meta.cover_character %}
+    <img class="prize-hero__art" src="{{ root }}static/img/characters/{{ meta.cover_character }}.svg" alt="">
+    {% endif %}
+  </header>
+
+  <nav class="level-tabs" aria-label="{{ ui.level_switch }}">
+    {% for l in levels %}
+      {% set info = ui.levels[l] %}
+      {% if l in available_levels %}
+      <a class="level-tab level-tab--{{ l }}{% if l == level %} is-current{% endif %}" href="{{ level_url(l) }}" data-level-link="{{ l }}"{% if l == level %} aria-current="page"{% endif %}>
+        <span class="level-tab__badge">{{ l }}</span>
+        <span class="level-tab__name">{{ info.name }}</span>
+        <span class="level-tab__who">{{ info.who }}</span>
+        <span class="level-tab__done" aria-hidden="true">✓</span>
+      </a>
+      {% else %}
+      <span class="level-tab level-tab--{{ l }} is-missing"><span class="level-tab__badge">{{ l }}</span><span class="level-tab__name">{{ info.name }}</span><span class="level-tab__who">{{ ui.coming_soon }}</span></span>
+      {% endif %}
+    {% endfor %}
+  </nav>
+
+  <div class="citation">
+    <p class="citation__label">{{ ui.citation }}</p>
+    <p class="citation__text">{{ meta.citation }}</p>
+    {% if meta.citation_original %}<p class="citation__orig" lang="en">{{ ui.original_citation }}: “{{ meta.citation_original }}”</p>{% endif %}
+  </div>
+
+  {% if intro_html %}<div class="prose intro">{{ intro_html|safe }}</div>{% endif %}
+
+  {% for s in sections %}
+  <section class="story-section" id="{{ s.id }}">
+    <div class="story-section__head">
+      <h2>{{ s.title }}</h2>
+      <button class="tts-btn" type="button" data-tts-target="{{ s.id }}" aria-label="{{ ui.read_aloud }}：{{ s.title }}">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span>{{ ui.read_aloud }}</span>
+      </button>
+    </div>
+    <div class="prose">{{ s.html|safe }}</div>
+  </section>
+  {% endfor %}
+
+  {% if meta.related %}
+  <section class="related">
+    <h2>{{ ui.related }}</h2>
+    <p class="related__hint">{{ ui.related_hint }}</p>
+    <ol class="relay">
+      {% for r in meta.related %}
+      <li class="relay__item field-{{ r.field }}">
+        <span class="relay__year">{{ r.year }}</span>
+        <span class="relay__field">{{ ui.fields[r.field] }}</span>
+        <strong>{{ r.title }}</strong>
+        {% if r.note %}<span class="relay__note">{{ r.note }}</span>{% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+  {% endif %}
+
+  <div class="finish">
+    <button class="finish__btn" type="button" id="mark-done">{{ ui.mark_done }}</button>
+  </div>
+
+  {% set all_sources = (meta.sources or []) + (fm.sources or []) %}
+  {% if all_sources %}
+  <section class="sources">
+    <h2>{{ ui.sources }}</h2>
+    <ul>
+      {% for s in all_sources %}
+      <li>{% if s.url %}<a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.title }}</a>{% else %}{{ s.title }}{% endif %}</li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+</article>
+{% endblock %}
+
+{% block scripts %}
+{% for comp in interactives %}
+<script src="{{ root }}static/js/interactives/{{ comp }}.js"></script>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "_layout.html" %}
+{% block title %}基本資料 {{ slug }}｜文稿工作室{% endblock %}
+{% block style %}
+  main { max-width: 900px; margin: 0 auto; padding: 8px 16px 48px; }
+  textarea { width: 100%; min-height: 60vh; font-family: var(--font-code); font-size: 14px; line-height: 1.7; padding: 14px;
+    border: 1px solid var(--rule); border-radius: 10px; background: #fffef9; color: var(--ink); }
+  .row { display: flex; gap: 10px; align-items: center; margin: 10px 0; flex-wrap: wrap; }
+{% endblock %}
+{% block bar %}<a href="/edit/{{ lang }}/{{ slug }}/L1">← 回到文稿</a>{% endblock %}
+{% block main %}
+<main>
+  <h1>基本資料：{{ slug }}</h1>
+  <p class="msg">得主、官方頒獎詞、相關獎項（科學接力棒）、參考資料都寫在這裡。格式是 YAML：<code>欄位: 值</code>，清單用 <code>- </code> 開頭，縮排請用空白鍵。</p>
+  <textarea id="meta" spellcheck="false" aria-label="基本資料">{{ text }}</textarea>
+  <div class="row">
+    <button class="btn primary" id="save" type="button">存檔</button>
+    <span class="msg" id="msg" aria-live="polite"></span>
+  </div>
+</main>
+<script>
+document.getElementById("save").addEventListener("click", async () => {
+  const msg = document.getElementById("msg");
+  const r = await fetch("/api/meta/{{ lang }}/{{ slug }}", { method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ text: document.getElementById("meta").value }) });
+  const d = await r.json();
+  msg.className = "msg" + (d.ok ? "" : " bad");
+  msg.textContent = d.ok ? "已存檔 " + d.saved_at : d.error;
+});
+</script>
+{% endblock %}

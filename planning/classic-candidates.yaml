@@ -1,0 +1,53 @@
+# 經典獎項候選清單（供討論，最後名單由主編決定）
+# priority: true 代表建議優先製作。
+# 挑選原則：
+#   1. 改變了日常生活或世界觀
+#   2. 適合視覺化、擬人化、做成互動
+#   3. 獎項之間能互相串連成「科學接力棒」
+#   4. 兼顧華人科學家與女性科學家的故事
+
+physics:
+  - { year: 1901, title: X 光的發現, who: 倫琴, priority: true, why: 第一屆諾貝爾物理學獎；目前的原型 }
+  - { year: 1903, title: 放射性, who: 貝克勒、皮耶・居禮、瑪麗・居禮, priority: true, why: 看不見的能量從原子裡跑出來；瑪麗・居禮的故事 }
+  - { year: 1915, title: 用 X 光看見晶體結構, who: 布拉格父子, why: 父子檔；接續 X 光，通往 DNA 與蛋白質結構 }
+  - { year: 1918, title: 能量量子, who: 普朗克, why: 量子物理的起點；光的能量是一份一份的 }
+  - { year: 1921, title: 光電效應, who: 愛因斯坦, priority: true, why: 光也是粒子；太陽能板、自動門感應器的原理 }
+  - { year: 1922, title: 原子結構, who: 波耳, why: 電子住在不同的「樓層」；煙火顏色的祕密 }
+  - { year: 1956, title: 電晶體, who: 蕭克利、巴丁、布拉頓, priority: true, why: 手機與電腦的基本零件；開關擬人化非常適合 }
+  - { year: 1957, title: 宇稱不守恆, who: 李政道、楊振寧, why: 首位華人得主；大自然其實分得出左右 }
+  - { year: 1964, title: 邁射與雷射, who: 湯斯、巴索夫、普羅霍羅夫, why: 光子排隊齊步走；條碼掃描、光碟、手術 }
+  - { year: 2009, title: 光纖通訊, who: 高錕（與 CCD 的博伊爾、史密斯）, priority: true, why: 華人科學家；網路靠光在玻璃絲裡跑 }
+  - { year: 2014, title: 藍光 LED, who: 赤﨑勇、天野浩、中村修二, why: 少了藍色就沒有白光 LED；屢敗屢戰的故事 }
+  - { year: 2017, title: 重力波, who: 魏斯、巴利許、索恩, priority: true, why: 聽見黑洞相撞的聲音；時空像彈簧床 }
+  - { year: 2024, title: 人工神經網路, who: 霍普菲爾德、辛頓, why: AI 的物理學根源；能量地形的互動很直觀 }
+
+chemistry:
+  - { year: 1911, title: 發現鐳與釙, who: 瑪麗・居禮, priority: true, why: 唯一在兩個不同科學領域得獎的人 }
+  - { year: 1918, title: 從空氣製造氨（哈柏法）, who: 哈柏, priority: true, why: 養活半個地球的肥料，也帶來毒氣戰爭；很適合討論科學倫理 }
+  - { year: 1954, title: 化學鍵的本質, who: 鮑林, why: 原子之間怎麼「手牽手」；擬人化最佳題材 }
+  - { year: 1964, title: 用 X 光解出生物分子結構, who: 霍奇金, why: 青黴素、維生素 B12 的結構；女性科學家 }
+  - { year: 1986, title: 化學反應動力學（交叉分子束）, who: 李遠哲、赫許巴赫、波蘭尼, priority: true, why: 第一位在臺灣出生的諾貝爾獎得主；看分子碰撞的慢動作 }
+  - { year: 1993, title: PCR 聚合酶連鎖反應, who: 穆利斯（與史密斯）, why: DNA 影印機；新冠檢測的原理 }
+  - { year: 1995, title: 臭氧層破洞, who: 克魯岑、莫利納、羅蘭, why: 科學如何拯救地球；蒙特婁議定書 }
+  - { year: 1996, title: 富勒烯 C60, who: 柯爾、克羅托、斯莫利, why: 足球形狀的分子；可以動手組裝的 3D 模型 }
+  - { year: 2008, title: 綠色螢光蛋白 GFP, who: 下村脩、查菲、錢永健, priority: true, why: 會發光的水母；華裔科學家；畫面非常漂亮 }
+  - { year: 2016, title: 分子機器, who: 索瓦日、司徒塔特、費林加, why: 奈米尺度的馬達和車子；最好玩的擬人化題材 }
+  - { year: 2019, title: 鋰離子電池, who: 古迪納夫、惠廷漢、吉野彰, priority: true, why: 手機裡的離子搬家；97 歲最高齡得主 }
+  - { year: 2020, title: CRISPR 基因剪刀, who: 夏彭蒂耶、道納, priority: true, why: 改寫生命密碼的剪刀；首次由兩位女性共同獲得化學獎 }
+  - { year: 2024, title: 蛋白質設計與結構預測, who: 貝克、哈薩比斯、江珀, why: AlphaFold；和 X 光晶體學形成跨越百年的接力 }
+
+medicine:
+  - { year: 1901, title: 白喉血清療法, who: 馮・貝林, why: 第一屆醫學獎；抗體的故事起點 }
+  - { year: 1905, title: 結核病研究, who: 柯霍, why: 找到真正的病菌元兇；柯霍法則的推理過程 }
+  - { year: 1906, title: 神經系統的結構, who: 高基、卡哈爾, why: 兩人得同一個獎卻意見相反；卡哈爾的手繪神經元非常美 }
+  - { year: 1923, title: 發現胰島素, who: 班廷、麥克勞德, priority: true, why: 讓糖尿病從絕症變成可控制的病 }
+  - { year: 1945, title: 青黴素, who: 弗萊明、柴恩、弗洛里, priority: true, why: 黴菌意外殺死細菌；抗生素時代的開始 }
+  - { year: 1962, title: DNA 雙螺旋, who: 克里克、華生、威爾金斯, priority: true, why: 生命的說明書；也要講富蘭克林與 51 號照片 }
+  - { year: 1979, title: 電腦斷層掃描 CT, who: 柯馬克、杭斯菲爾德, why: 直接接續 X 光；從切片重建立體影像 }
+  - { year: 1983, title: 跳躍基因, who: 麥克林托克, why: 玉米上的花斑；獨自堅持數十年的女性科學家 }
+  - { year: 2003, title: 磁振造影 MRI, who: 勞特伯、曼斯菲爾德, why: 用磁場和無線電看身體；不用 X 光 }
+  - { year: 2005, title: 幽門螺旋桿菌, who: 馬歇爾、華倫, priority: true, why: 自己喝下細菌證明胃潰瘍的病因；精彩故事 }
+  - { year: 2012, title: 誘導性多功能幹細胞 iPS, who: 山中伸彌、戈登, why: 讓細胞「回到小時候」 }
+  - { year: 2015, title: 青蒿素, who: 屠呦呦（與坎貝爾、大村智）, priority: true, why: 從古代醫書找到瘧疾藥；華人女性科學家 }
+  - { year: 2018, title: 免疫檢查點療法, who: 艾利森、本庶佑, why: 放開免疫系統的煞車對抗癌症 }
+  - { year: 2023, title: mRNA 疫苗, who: 卡里科、魏斯曼, priority: true, why: 新冠疫苗的關鍵；不被看好的研究終於成功 }

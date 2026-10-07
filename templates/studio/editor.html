@@ -1,0 +1,211 @@
+{% extends "_layout.html" %}
+{% block title %}{{ prize.meta.title }} {{ level }}｜文稿工作室{% endblock %}
+{% block style %}
+  html, body { height: 100%; }
+  body { display: flex; flex-direction: column; }
+  .workspace { flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-height: 0; }
+  .pane { display: flex; flex-direction: column; min-height: 0; min-width: 0; }
+  .pane + .pane { border-left: 1px solid var(--rule); }
+  .tools { display: flex; flex-wrap: wrap; gap: 6px; padding: 8px 12px; background: var(--panel); border-bottom: 1px solid var(--rule); align-items: center; }
+  .tools .sep { width: 1px; height: 22px; background: var(--rule); margin: 0 4px; }
+  .tools select { font: inherit; font-size: .85rem; padding: 2px 6px; border-radius: 8px; border: 1px solid var(--rule); background: #fff; color: var(--ink); }
+  .tools .btn { font-size: .82rem; padding: 2px 10px; }
+  textarea#source { flex: 1; width: 100%; resize: none; border: 0; padding: 16px 18px; font-family: var(--font-body); font-size: 15.5px;
+    line-height: 1.85; background: #fffef9; color: var(--ink); outline: none; tab-size: 2; }
+  iframe { flex: 1; width: 100%; border: 0; background: #fff; }
+  .levels a { text-decoration: none; padding: 2px 10px; border-radius: 8px; color: var(--ink); border: 1px solid transparent; }
+  .levels a.current { border-color: var(--ink); background: #ffe58a; }
+  .problems { background: #fff1ee; color: var(--bad); font-size: .85rem; padding: 6px 14px; border-bottom: 1px solid var(--rule); }
+  .problems:empty { display: none; }
+  details.help { font-size: .85rem; background: var(--panel); border-top: 1px solid var(--rule); max-height: 40vh; overflow: auto; }
+  details.help summary { cursor: pointer; padding: 6px 14px; font-weight: 700; }
+  details.help .inner { padding: 0 16px 12px; }
+  details.help code { font-family: var(--font-code); background: #f3efe4; padding: 0 4px; border-radius: 4px; }
+  details.help pre { font-family: var(--font-code); background: #f3efe4; padding: 8px 10px; border-radius: 8px; overflow-x: auto; }
+  .title { font-family: var(--font-display); font-weight: 700; }
+  @media (max-width: 900px) {
+    .workspace { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; }
+    .pane + .pane { border-left: 0; border-top: 1px solid var(--rule); }
+  }
+{% endblock %}
+
+{% block bar %}
+  <span class="title">{{ prize.year }} {{ prize.meta.title }}</span>
+  <nav class="levels">
+    {% for lv in levels %}<a href="/edit/{{ lang }}/{{ slug }}/{{ lv }}" class="{{ 'current' if lv == level else '' }}">{{ lv }}</a>{% endfor %}
+  </nav>
+  <a href="/meta/{{ lang }}/{{ slug }}">基本資料</a>
+{% endblock %}
+
+{% block main %}
+<div class="workspace">
+  <section class="pane" aria-label="文稿">
+    <div class="tools">
+      <label>狀態
+        <select id="status">
+          {% for key, label in status_labels.items() %}<option value="{{ key }}" {{ 'selected' if key == status }}>{{ label }}</option>{% endfor %}
+        </select>
+      </label>
+      <button class="btn primary" type="button" id="save">存檔</button>
+      <span class="msg" id="save-msg" aria-live="polite"></span>
+    </div>
+    <div class="tools" role="toolbar" aria-label="插入">
+      <button class="btn" type="button" data-insert="section">＋段落</button>
+      <button class="btn" type="button" data-insert="bold">粗體</button>
+      <span class="sep"></span>
+      <select id="char" aria-label="角色">
+        {% for cid, c in characters.items() %}<option value="{{ c.name }}">{{ c.name }}</option>{% endfor %}
+      </select>
+      <select id="mood" aria-label="表情"></select>
+      <button class="btn" type="button" data-insert="chat">＋對話</button>
+      <span class="sep"></span>
+      <select id="ix" aria-label="互動元件">
+        {% for n in interactives %}<option>{{ n }}</option>{% endfor %}
+      </select>
+      <button class="btn" type="button" data-insert="interactive">＋互動</button>
+      <span class="sep"></span>
+      <button class="btn" type="button" data-insert="note">＋小知識</button>
+      <button class="btn" type="button" data-insert="term">＋名詞解釋</button>
+      <button class="btn" type="button" data-insert="timeline">＋時間軸</button>
+      <button class="btn" type="button" data-insert="quiz">＋測驗</button>
+      <label class="btn" for="upload">＋圖片</label>
+      <input type="file" id="upload" accept="image/*" hidden>
+    </div>
+    <div class="problems" id="problems" aria-live="polite"></div>
+    <textarea id="source" spellcheck="false" aria-label="文稿內容">{{ text }}</textarea>
+    <details class="help">
+      <summary>語法小抄</summary>
+      <div class="inner">
+        <p>一般文字直接寫；空一行就是新的一段。<code>## 標題</code> 開始一個新段落（每段會自動有「朗讀」按鈕）。<code>**重點**</code> 會變成螢光筆標記。</p>
+<pre>:::對話 小諾 開心
+角色說的話
+:::
+
+:::互動 xray-lens
+互動元件下方的說明
+:::
+
+:::小知識 標題
+補充說明
+:::
+
+{{ '{{' }}名詞|滑過去會出現的解釋{{ '}}' }}
+
+:::時間軸
+- 時間: 1895-11-08
+  事件: 發生了什麼
+:::
+
+:::測驗
+- 問題: 題目
+  選項: [選項甲, 選項乙, 選項丙]
+  答案: 1        # 從 0 開始數，1 代表「選項乙」
+  解說: 為什麼
+:::</pre>
+        <p>角色與表情：
+          {% for cid, c in characters.items() %}<strong>{{ c.name }}</strong>（{{ c.moods.keys()|list|join('、') }}）{% if not loop.last %}；{% endif %}{% endfor %}
+        </p>
+        <p>互動元件：{{ interactives|join('、') }}</p>
+        <p>存檔前的版本會自動備份在 <code>.backup/</code> 資料夾。</p>
+      </div>
+    </details>
+  </section>
+  <section class="pane" aria-label="預覽">
+    <iframe id="preview" title="預覽"></iframe>
+  </section>
+</div>
+
+<script>
+(function () {
+  const API = "/api/{action}/{{ lang }}/{{ slug }}/{{ level }}";
+  const src = document.getElementById("source");
+  const frame = document.getElementById("preview");
+  const problems = document.getElementById("problems");
+  const saveMsg = document.getElementById("save-msg");
+  const statusSel = document.getElementById("status");
+  const characters = {{ characters|tojson }};
+  let dirty = false, timer = null;
+
+  // 角色表情選單
+  const charSel = document.getElementById("char"), moodSel = document.getElementById("mood");
+  function fillMoods() {
+    const c = Object.values(characters).find(c => c.name === charSel.value);
+    moodSel.innerHTML = "";
+    Object.keys((c && c.moods) || {}).forEach(m => moodSel.add(new Option(m, m, m === "預設", m === "預設")));
+  }
+  charSel.addEventListener("change", fillMoods); fillMoods();
+
+  // 預覽
+  async function refresh() {
+    const y = frame.contentWindow ? frame.contentWindow.scrollY : 0;
+    const r = await fetch(API.replace("{action}", "preview"), {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text: src.value })
+    });
+    const d = await r.json();
+    problems.textContent = d.problems.length ? "⚠ " + d.problems.join("　⚠ ") : "";
+    frame.onload = () => { try { frame.contentWindow.scrollTo(0, y); } catch (e) {} };
+    frame.srcdoc = d.html;
+  }
+  src.addEventListener("input", () => {
+    dirty = true; saveMsg.textContent = "尚未存檔";
+    clearTimeout(timer); timer = setTimeout(refresh, 700);
+  });
+  statusSel.addEventListener("change", () => { dirty = true; saveMsg.textContent = "尚未存檔"; });
+
+  // 存檔
+  async function save() {
+    saveMsg.textContent = "存檔中…";
+    const r = await fetch(API.replace("{action}", "save"), {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: src.value, status: statusSel.value })
+    });
+    const d = await r.json();
+    if (d.ok) { dirty = false; saveMsg.className = "msg"; saveMsg.textContent = "已存檔 " + d.saved_at; }
+    else { saveMsg.className = "msg bad"; saveMsg.textContent = d.error; }
+  }
+  document.getElementById("save").addEventListener("click", save);
+  document.addEventListener("keydown", e => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "s") { e.preventDefault(); save(); }
+  });
+  window.addEventListener("beforeunload", e => { if (dirty) { e.preventDefault(); e.returnValue = ""; } });
+
+  // 插入片段
+  function insert(text, selectFrom, selectLen) {
+    const s = src.selectionStart, e = src.selectionEnd;
+    const before = src.value.slice(0, s), after = src.value.slice(e);
+    src.value = before + text + after;
+    src.focus();
+    const start = s + (selectFrom || 0);
+    src.setSelectionRange(start, start + (selectLen || 0));
+    src.dispatchEvent(new Event("input"));
+  }
+  function selected(fallback) {
+    return src.value.slice(src.selectionStart, src.selectionEnd) || fallback;
+  }
+  const blockStart = () => (src.selectionStart > 0 && src.value[src.selectionStart - 1] !== "\n" ? "\n\n" : "");
+  const SNIPPETS = {
+    section: () => { const t = blockStart() + "## 新段落標題\n\n"; insert(t, t.indexOf("新"), 5); },
+    bold: () => { const w = selected("重點"); insert("**" + w + "**", 2, w.length); },
+    chat: () => { const head = blockStart() + ":::對話 " + charSel.value + " " + moodSel.value + "\n"; insert(head + "說的話\n:::\n", head.length, 3); },
+    interactive: () => { const head = blockStart() + ":::互動 " + document.getElementById("ix").value + "\n"; insert(head + "說明文字\n:::\n", head.length, 4); },
+    note: () => { const head = blockStart() + ":::小知識 標題\n"; insert(head + "補充說明\n:::\n", head.length, 4); },
+    term: () => { const w = selected("名詞"); insert("{" + "{" + w + "|解釋}" + "}", w.length + 3, 2); },
+    timeline: () => insert(blockStart() + ":::時間軸\n- 時間: 1895-11-08\n  事件: 發生了什麼\n- 時間: 1895-12-28\n  事件: 發生了什麼\n:::\n"),
+    quiz: () => insert(blockStart() + ":::測驗\n- 問題: 題目\n  選項: [選項甲, 選項乙, 選項丙]\n  答案: 0\n  解說: 為什麼\n:::\n")
+  };
+  document.querySelectorAll("[data-insert]").forEach(b => b.addEventListener("click", () => SNIPPETS[b.dataset.insert]()));
+
+  // 上傳圖片
+  document.getElementById("upload").addEventListener("change", async e => {
+    const f = e.target.files[0]; if (!f) return;
+    const fd = new FormData(); fd.append("file", f);
+    const r = await fetch("/api/upload/{{ lang }}/{{ slug }}", { method: "POST", body: fd });
+    const d = await r.json();
+    if (d.ok) insert(blockStart() + d.snippet + "\n"); else { saveMsg.className = "msg bad"; saveMsg.textContent = d.error; }
+    e.target.value = "";
+  });
+
+  refresh();
+})();
+</script>
+{% endblock %}

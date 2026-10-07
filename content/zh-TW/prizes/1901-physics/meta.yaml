@@ -1,0 +1,42 @@
+year: 1901
+field: physics
+title: 看穿身體的神秘光線
+subtitle: X 光的發現
+laureates:
+  - name: 威廉・倫琴
+    original: Wilhelm Conrad Röntgen
+    country: 德國
+    life: 1845–1923
+citation: 表彰他發現了後來以他命名的非凡射線，為科學做出的卓越貢獻。
+citation_original: in recognition of the extraordinary services he has rendered by the discovery of the remarkable rays subsequently named after him
+cover_character: xray-happy
+tags: [X光, 電磁波, 醫學影像, 第一屆諾貝爾獎]
+status:
+  L1: draft
+  L2: draft
+  L3: draft
+related:
+  - year: 1914
+    field: physics
+    title: 晶體的 X 光繞射
+    note: 勞厄證明 X 光是一種波長很短的電磁波。
+  - year: 1915
+    field: physics
+    title: 用 X 光分析晶體結構
+    note: 布拉格父子用 X 光量出原子的排列。
+  - year: 1962
+    field: medicine
+    title: DNA 雙螺旋結構
+    note: 關鍵線索來自 DNA 的 X 光繞射照片。
+  - year: 1979
+    field: medicine
+    title: 電腦斷層掃描（CT）
+    note: 從各個角度拍 X 光，再用電腦重建立體影像。
+sources:
+  - title: NobelPrize.org — The Nobel Prize in Physics 1901
+    url: https://www.nobelprize.org/prizes/physics/1901/summary/
+  - title: W. C. Röntgen (1895). Über eine neue Art von Strahlen. Sitzungsberichte der Physikalisch-Medizinischen Gesellschaft zu Würzburg, 137–147.
+  - title: W. C. Röntgen (1896). On a New Kind of Rays. Nature 53, 274–276.
+    url: https://doi.org/10.1038/053274b0
+  - title: NIST X-Ray Mass Attenuation Coefficients（衰減係數數據）
+    url: https://physics.nist.gov/PhysRefData/XrayMassCoef/

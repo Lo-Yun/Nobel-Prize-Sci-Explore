@@ -1,0 +1,18 @@
+# 網站設定
+default_language: zh-TW
+
+# 支援的語言。新增語言時：
+#   1. 在這裡加一行
+#   2. 新增 i18n/<語言>.yaml（介面文字）
+#   3. 新增 content/<語言>/（文稿與 characters.yaml）
+languages:
+  zh-TW: { label: 繁體中文, html_lang: zh-Hant-TW, tts: zh-TW }
+  en:    { label: English,  html_lang: en,         tts: en-US }
+
+fields: [physics, chemistry, medicine]
+
+# true：草稿和審稿中的頁面也會產生（頁面上會標示「草稿」）
+# false：只產生已定稿的頁面（正式上線時改成 false）
+show_drafts: true
+
+output_dir: _site

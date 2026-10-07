@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="{{ lang_info.html_lang or lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{% block title %}{{ ui.site_name }}{% endblock %}</title>
+<meta name="description" content="{% block description %}{{ ui.site_tagline }}{% endblock %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="{{ root }}static/css/site.css">
+<link rel="icon" href="{{ root }}static/img/characters/nuo-default.svg" type="image/svg+xml">
+</head>
+<body class="{% block body_class %}{% endblock %}">
+<header class="topbar">
+  <a class="brand" href="{{ home_url }}">
+    <img src="{{ root }}static/img/characters/nuo-default.svg" alt="" width="40" height="44">
+    <span>{{ ui.site_name }}</span>
+  </a>
+  <nav class="topbar__nav">
+    {% block nav %}{% endblock %}
+  </nav>
+</header>
+<main>
+{% block main %}{% endblock %}
+</main>
+<footer class="footer">
+  <p>{{ ui.site_name }} · {{ ui.progress_hint }}</p>
+</footer>
+<script>
+window.SITE = {
+  lang: {{ lang|tojson }},
+  tts: {{ (lang_info.tts or lang)|tojson }},
+  root: {{ root|tojson }},
+  ui: {{ ui|tojson }}
+};
+</script>
+<script src="{{ root }}static/js/site.js"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

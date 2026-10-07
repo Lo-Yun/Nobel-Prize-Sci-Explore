@@ -1,0 +1,47 @@
+# UI strings (English). Missing keys fall back to the default language.
+site_name: Nobel Science Explorer
+site_tagline: Big prize-winning discoveries, told as stories you can follow
+fields:
+  physics: Physics
+  chemistry: Chemistry
+  medicine: Physiology or Medicine
+levels:
+  L1: { name: Explorer, who: Elementary, desc: Stories and games. No formulas. }
+  L2: { name: Researcher, who: Middle & high school, desc: How it works and how it was found. }
+  L3: { name: Scholar, who: University, desc: Derivations, data and the original papers. }
+choose_level: How deep do you want to go?
+choose_level_hint: You can switch on any prize page.
+your_level: Current level
+home: Home
+read_aloud: Read aloud
+stop_reading: Stop
+tts_unavailable: Speech is not supported in this browser.
+laureate: Laureate
+citation: Prize motivation
+original_citation: Original
+mark_done: I finished this!
+done: Finished
+quiz_check: Check answers
+quiz_retry: Try again
+quiz_score: "{score} / {total} correct"
+correct: Correct!
+wrong: Not quite — think again.
+loading_interactive: Loading interactive…
+note: Did you know?
+draft_badge: Draft
+review_badge: In review
+draft_notice: This page is still being reviewed and may change.
+sources: Sources
+related: The science relay
+related_hint: Later Nobel Prizes this discovery led to.
+coming_soon: Coming soon
+more_coming: More classic prizes are on the way.
+progress_title: My progress
+progress_hint: Saved only in your own browser.
+progress_reset: Clear progress
+progress_reset_confirm: Click again to confirm
+progress_cleared: Progress cleared
+read_count: "{n} read"
+other_language: Other languages
+level_switch: Switch level
+minutes: About {n} min

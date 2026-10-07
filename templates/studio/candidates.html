@@ -1,0 +1,31 @@
+{% extends "_layout.html" %}
+{% block title %}經典獎項候選清單｜文稿工作室{% endblock %}
+{% block style %}
+  main { max-width: 1000px; margin: 0 auto; padding: 8px 16px 48px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+  section { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 4px 16px 12px; }
+  ol { padding-left: 1.2em; }
+  li { margin: 6px 0; }
+  .y { font-family: var(--font-code); font-weight: 600; }
+  .why { display: block; font-size: .85rem; color: var(--soft); }
+  .star { color: #d98a1c; }
+{% endblock %}
+{% block main %}
+<main>
+  <h1>經典獎項候選清單</h1>
+  <p class="msg">清單內容在 <code>planning/classic-candidates.yaml</code>。<span class="star">★</span> 是建議優先製作的項目，最後名單由你決定。</p>
+  <div class="grid">
+  {% for field, items in data.items() %}
+    <section>
+      <h2>{{ field_labels.get(field, field) }}</h2>
+      <ol>
+      {% for it in items %}
+        <li>{% if it.priority %}<span class="star">★</span> {% endif %}<span class="y">{{ it.year }}</span> {{ it.title }}
+          <span class="why">{{ it.who }}。{{ it.why }}</span></li>
+      {% endfor %}
+      </ol>
+    </section>
+  {% endfor %}
+  </div>
+</main>
+{% endblock %}

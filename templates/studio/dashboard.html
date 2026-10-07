@@ -1,0 +1,89 @@
+{% extends "_layout.html" %}
+{% block style %}
+  main { max-width: 1000px; margin: 0 auto; padding: 8px 16px 48px; }
+  table { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; overflow: hidden; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--rule); vertical-align: middle; }
+  th { font-size: .8rem; color: var(--soft); font-weight: 500; letter-spacing: .04em; }
+  td .year { font-family: var(--font-code); font-weight: 600; }
+  td .levels { display: flex; gap: 8px; flex-wrap: wrap; }
+  td .levels a { display: inline-flex; gap: 6px; align-items: center; text-decoration: none; color: var(--ink);
+    border: 1px solid var(--rule); border-radius: 10px; padding: 2px 8px; }
+  td .levels a:hover { border-color: var(--ink); }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 24px; }
+  .card { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 4px 18px 16px; }
+  form.new { display: grid; gap: 8px; }
+  form.new label { display: grid; gap: 2px; font-size: .9rem; }
+  input, select { font: inherit; padding: 4px 8px; border: 1px solid var(--rule); border-radius: 8px; background: #fff; color: var(--ink); }
+  #build-out { white-space: pre-wrap; font-size: .85rem; }
+  .table-wrap { overflow-x: auto; }
+{% endblock %}
+{% block main %}
+<main>
+  <h1>我的文稿</h1>
+  <p class="msg">點 L1／L2／L3 進入編輯。狀態：<span class="pill draft">草稿</span> <span class="pill review">審稿中</span> <span class="pill final">已定稿</span></p>
+  {% for lang, prizes in data.items() %}
+  <h2>{{ cfg.languages[lang].label if cfg.languages[lang] else lang }}</h2>
+  {% if prizes %}
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>年份</th><th>領域</th><th>標題</th><th>三個程度</th><th>基本資料</th></tr></thead>
+    <tbody>
+    {% for p in prizes %}
+      <tr>
+        <td><span class="year">{{ p.year }}</span></td>
+        <td>{{ field_labels[p.field] }}</td>
+        <td>{{ p.meta.title }}</td>
+        <td><div class="levels">
+          {% for lv in ["L1", "L2", "L3"] %}
+          <a href="/edit/{{ lang }}/{{ p.slug }}/{{ lv }}">{{ lv }} <span class="pill {{ p.status(lv) }}">{{ status_labels[p.status(lv)] }}</span></a>
+          {% endfor %}
+        </div></td>
+        <td><a href="/meta/{{ lang }}/{{ p.slug }}">得主、頒獎詞…</a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+  {% else %}
+  <p class="msg">這個語言還沒有文稿。</p>
+  {% endif %}
+  {% endfor %}
+
+  <div class="cards">
+    <section class="card">
+      <h2>新增獎項</h2>
+      <form class="new" method="post" action="/new">
+        <label>語言
+          <select name="lang" id="new-lang">
+            {% for code, info in cfg.languages.items() %}<option value="{{ code }}">{{ info.label }}</option>{% endfor %}
+          </select></label>
+        <label>年份 <input name="year" id="new-year" type="number" min="1901" max="2100" required placeholder="1945"></label>
+        <label>領域
+          <select name="field" id="new-field">
+            <option value="physics">物理學獎</option><option value="chemistry">化學獎</option><option value="medicine">生理學或醫學獎</option>
+          </select></label>
+        <label>標題 <input name="title" id="new-title" placeholder="例如：黴菌裡的救命藥"></label>
+        <button class="btn primary" type="submit">建立（會附上三個程度的空白範本）</button>
+      </form>
+    </section>
+    <section class="card">
+      <h2>產生網站</h2>
+      <p class="msg">把所有文稿轉成網頁，放到 <code>_site/</code> 資料夾。寫完一段落後按一下，再點右上角「看網站」。</p>
+      <button class="btn primary" type="button" id="build">重新產生網站</button>
+      <p id="build-out" class="msg" aria-live="polite">{% if not site_built %}還沒有產生過網站。{% endif %}</p>
+    </section>
+  </div>
+</main>
+<script>
+document.getElementById("build").addEventListener("click", async () => {
+  const out = document.getElementById("build-out");
+  out.textContent = "產生中…";
+  const r = await fetch("/api/build", { method: "POST" });
+  const d = await r.json();
+  out.className = "msg" + (d.problems.length ? " bad" : "");
+  out.textContent = d.problems.length
+    ? "完成，但有幾個地方需要修正：\n" + d.problems.join("\n")
+    : "完成！網站已更新。";
+});
+</script>
+{% endblock %}

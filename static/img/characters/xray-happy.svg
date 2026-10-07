@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+<defs>
+  <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="8" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <filter id="rough2" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="13" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="G" yChannelSelector="R"/>
+  </filter>
+  <filter id="pencil" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11" result="grain"/>
+    <feColorMatrix in="grain" type="matrix"
+      values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.2 1.75" result="mask"/>
+    <feComposite in="SourceGraphic" in2="mask" operator="in" result="tex"/>
+    <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="8" result="n"/>
+    <feDisplacementMap in="tex" in2="n" scale="3.2" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(38)">
+    <line x1="0" y1="0" x2="0" y2="5" stroke="#3a2e2a" stroke-width="1.1"/>
+  </pattern>
+</defs>
+<path d="M80.0 18.0 L95.3 47.0 L126.7 37.3 L117.0 68.7 L146.0 84.0 L117.0 99.3 L126.7 130.7 L95.3 121.0 L80.0 150.0 L64.7 121.0 L33.3 130.7 L43.0 99.3 L14.0 84.0 L43.0 68.7 L33.3 37.3 L64.7 47.0 Z" fill="#b9a4ff" filter="url(#pencil)"/>
+<path d="M80.0 18.0 L95.3 47.0 L126.7 37.3 L117.0 68.7 L146.0 84.0 L117.0 99.3 L126.7 130.7 L95.3 121.0 L80.0 150.0 L64.7 121.0 L33.3 130.7 L43.0 99.3 L14.0 84.0 L43.0 68.7 L33.3 37.3 L64.7 47.0 Z" fill="url(#hatch)" opacity="0.14" filter="url(#rough)"/>
+<path d="M80.0 18.0 L95.3 47.0 L126.7 37.3 L117.0 68.7 L146.0 84.0 L117.0 99.3 L126.7 130.7 L95.3 121.0 L80.0 150.0 L64.7 121.0 L33.3 130.7 L43.0 99.3 L14.0 84.0 L43.0 68.7 L33.3 37.3 L64.7 47.0 Z" fill="none" stroke="#3a2e2a" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" filter="url(#rough)"/>
+<path d="M80.0 18.0 L95.3 47.0 L126.7 37.3 L117.0 68.7 L146.0 84.0 L117.0 99.3 L126.7 130.7 L95.3 121.0 L80.0 150.0 L64.7 121.0 L33.3 130.7 L43.0 99.3 L14.0 84.0 L43.0 68.7 L33.3 37.3 L64.7 47.0 Z" fill="none" stroke="#3a2e2a" stroke-width="1.08" opacity=".55" stroke-linecap="round" filter="url(#rough2)" transform="translate(1.2 -0.8) "/>
+<circle cx="80" cy="84" r="34" fill="#9fdcff" filter="url(#pencil)"/>
+<circle cx="80" cy="84" r="34" fill="url(#hatch)" opacity="0.08" filter="url(#rough)"/>
+<circle cx="80" cy="84" r="34" fill="none" stroke="#3a2e2a" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" filter="url(#rough)"/>
+<circle cx="80" cy="84" r="34" fill="none" stroke="#3a2e2a" stroke-width="1.08" opacity=".55" stroke-linecap="round" filter="url(#rough2)" transform="translate(1.2 -0.8) "/>
+<path d="M62 82 Q69 72 76 82" fill="none" stroke="#3a2e2a" stroke-width="3.5" opacity="1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<path d="M86 82 Q93 72 100 82" fill="none" stroke="#3a2e2a" stroke-width="3.5" opacity="1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<path d="M70 96 Q81 106 92 96" fill="none" stroke="#3a2e2a" stroke-width="3" opacity="1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<ellipse cx="58" cy="94" rx="6" ry="4" fill="#f08a8a" opacity=".5"/>
+<ellipse cx="104" cy="94" rx="6" ry="4" fill="#f08a8a" opacity=".5"/></svg>

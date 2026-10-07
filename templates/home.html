@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block body_class %}page-home{% endblock %}
+{% block nav %}
+  {% for lg in all_langs if lg != lang %}
+    <a class="chip" href="{{ root }}{{ lg }}/index.html" hreflang="{{ lg }}">{{ cfg.languages[lg].label if cfg.languages[lg] else lg }}</a>
+  {% endfor %}
+{% endblock %}
+
+{% block main %}
+<section class="home-hero">
+  <img class="home-hero__nuo" src="{{ root }}static/img/characters/nuo-happy.svg" alt="">
+  <div class="home-hero__text">
+    <h1>{{ ui.site_name }}</h1>
+    <p class="lede">{{ ui.site_tagline }}</p>
+  </div>
+</section>
+
+<section class="level-picker" aria-labelledby="pick-title">
+  <h2 id="pick-title">{{ ui.choose_level }}</h2>
+  <p class="level-picker__hint">{{ ui.choose_level_hint }}</p>
+  <div class="level-picker__grid">
+    {% for l in levels %}
+    {% set info = ui.levels[l] %}
+    <button type="button" class="level-card level-card--{{ l }}" data-pick-level="{{ l }}" aria-pressed="false">
+      <span class="level-card__badge">{{ l }}</span>
+      <span class="level-card__name">{{ info.name }}</span>
+      <span class="level-card__who">{{ info.who }}</span>
+      <span class="level-card__desc">{{ info.desc }}</span>
+    </button>
+    {% endfor %}
+  </div>
+</section>
+
+{% for field, prizes in by_field.items() %}
+<section class="shelf field-{{ field }}">
+  <h2 class="shelf__title">{{ ui.fields[field] }}</h2>
+  <div class="shelf__row">
+    {% for p in prizes %}
+    <a class="prize-card" href="{{ prize_href(p, 'L1') }}" data-prize-card="{{ lang }}/{{ p.slug }}"
+       data-hrefs='{{ {"L1": prize_href(p, "L1"), "L2": prize_href(p, "L2"), "L3": prize_href(p, "L3")}|tojson }}'>
+      {% if p.meta.cover_character %}<img src="{{ root }}static/img/characters/{{ p.meta.cover_character }}.svg" alt="" class="prize-card__art">{% endif %}
+      <span class="prize-card__year">{{ p.year }}</span>
+      <strong class="prize-card__title">{{ p.meta.title }}</strong>
+      <span class="prize-card__who">{% for l in p.meta.laureates %}{{ l.name }}{% if not loop.last %}、{% endif %}{% endfor %}</span>
+      <span class="prize-card__progress" aria-hidden="true">
+        {% for l in levels %}<span class="dot dot--{{ l }}" data-dot="{{ l }}">{{ l }}</span>{% endfor %}
+      </span>
+    </a>
+    {% else %}
+    <p class="shelf__empty">{{ ui.coming_soon }}</p>
+    {% endfor %}
+  </div>
+</section>
+{% endfor %}
+
+<p class="more-coming">{{ ui.more_coming }}</p>
+
+<section class="progress-panel">
+  <h2>{{ ui.progress_title }}</h2>
+  <p id="progress-summary"></p>
+  <p class="progress-panel__hint">{{ ui.progress_hint }}</p>
+  <button type="button" class="chip" id="progress-reset">{{ ui.progress_reset }}</button>
+</section>
+{% endblock %}

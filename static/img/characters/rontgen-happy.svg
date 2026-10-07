@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240">
+<defs>
+  <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="6" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <filter id="rough2" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="11" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="G" yChannelSelector="R"/>
+  </filter>
+  <filter id="pencil" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11" result="grain"/>
+    <feColorMatrix in="grain" type="matrix"
+      values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.2 1.75" result="mask"/>
+    <feComposite in="SourceGraphic" in2="mask" operator="in" result="tex"/>
+    <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="6" result="n"/>
+    <feDisplacementMap in="tex" in2="n" scale="3.2" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(38)">
+    <line x1="0" y1="0" x2="0" y2="5" stroke="#3a2e2a" stroke-width="1.1"/>
+  </pattern>
+</defs>
+<path d="M28 238 Q34 168 100 160 Q166 168 172 238 Z" fill="#4a4e69" filter="url(#pencil)"/>
+<path d="M28 238 Q34 168 100 160 Q166 168 172 238 Z" fill="url(#hatch)" opacity="0.2" filter="url(#rough)"/>
+<path d="M28 238 Q34 168 100 160 Q166 168 172 238 Z" fill="none" stroke="#3a2e2a" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" filter="url(#rough)"/>
+<path d="M28 238 Q34 168 100 160 Q166 168 172 238 Z" fill="none" stroke="#3a2e2a" stroke-width="1.08" opacity=".55" stroke-linecap="round" filter="url(#rough2)" transform="translate(1.2 -0.8) "/>
+<path d="M82 164 L100 200 L118 164 Z" fill="#fbf7ef" filter="url(#pencil)"/>
+<path d="M82 164 L100 200 L118 164 Z" fill="url(#hatch)" opacity="0.05" filter="url(#rough)"/>
+<path d="M82 164 L100 200 L118 164 Z" fill="none" stroke="#3a2e2a" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" filter="url(#rough)"/>
+<path d="M82 164 L100 200 L118 164 Z" fill="none" stroke="#3a2e2a" stroke-width="0.81" opacity=".55" stroke-linecap="round" filter="url(#rough2)" transform="translate(1.2 -0.8) "/>
+<path d="M94 176 L100 186 L106 176 L100 170 Z" fill="#2b2d42" filter="url(#pencil)"/>
+<path d="M94 176 L100 186 L106 176 L100 170 Z" fill="none" stroke="#3a2e2a" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" filter="url(#rough)"/>
+<path d="M94 176 L100 186 L106 176 L100 170 Z" fill="none" stroke="#3a2e2a" stroke-width="0.72" opacity=".55" stroke-linecap="round" filter="url(#rough2)" transform="translate(1.2 -0.8) "/>
+<ellipse cx="100" cy="92" rx="40" ry="50" fill="#f2c9a0" filter="url(#pencil)"/>
+<ellipse cx="100" cy="92" rx="40" ry="50" fill="url(#hatch)" opacity="0.06" filter="url(#rough)"/>
+<ellipse cx="100" cy="92" rx="40" ry="50" fill="none" stroke="#3a2e2a" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" filter="url(#rough)"/>
+<ellipse cx="100" cy="92" rx="40" ry="50" fill="none" stroke="#3a2e2a" stroke-width="1.08" opacity=".55" stroke-linecap="round" filter="url(#rough2)" transform="translate(1.2 -0.8) "/>
+<path d="M58 92 Q50 52 72 38 Q100 22 130 38 Q152 52 142 92 Q138 70 126 72 Q118 60 104 66 Q92 58 82 68 Q66 66 58 92 Z" fill="#6f5f52" filter="url(#pencil)"/>
+<path d="M58 92 Q50 52 72 38 Q100 22 130 38 Q152 52 142 92 Q138 70 126 72 Q118 60 104 66 Q92 58 82 68 Q66 66 58 92 Z" fill="url(#hatch)" opacity="0.25" filter="url(#rough)"/>
+<path d="M58 92 Q50 52 72 38 Q100 22 130 38 Q152 52 142 92 Q138 70 126 72 Q118 60 104 66 Q92 58 82 68 Q66 66 58 92 Z" fill="none" stroke="#3a2e2a" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" filter="url(#rough)"/>
+<path d="M58 92 Q50 52 72 38 Q100 22 130 38 Q152 52 142 92 Q138 70 126 72 Q118 60 104 66 Q92 58 82 68 Q66 66 58 92 Z" fill="none" stroke="#3a2e2a" stroke-width="1.08" opacity=".55" stroke-linecap="round" filter="url(#rough2)" transform="translate(1.2 -0.8) "/>
+<ellipse cx="60" cy="98" rx="7" ry="11" fill="#f2c9a0" filter="url(#pencil)"/>
+<ellipse cx="60" cy="98" rx="7" ry="11" fill="none" stroke="#3a2e2a" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" filter="url(#rough)"/>
+<ellipse cx="60" cy="98" rx="7" ry="11" fill="none" stroke="#3a2e2a" stroke-width="0.81" opacity=".55" stroke-linecap="round" filter="url(#rough2)" transform="translate(1.2 -0.8) "/>
+<ellipse cx="140" cy="98" rx="7" ry="11" fill="#f2c9a0" filter="url(#pencil)"/>
+<ellipse cx="140" cy="98" rx="7" ry="11" fill="none" stroke="#3a2e2a" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" filter="url(#rough)"/>
+<ellipse cx="140" cy="98" rx="7" ry="11" fill="none" stroke="#3a2e2a" stroke-width="0.81" opacity=".55" stroke-linecap="round" filter="url(#rough2)" transform="translate(1.2 -0.8) "/>
+<path d="M62 104 Q64 150 84 170 Q100 184 116 170 Q136 150 138 104 Q128 128 116 122 Q100 116 84 122 Q72 128 62 104 Z" fill="#9b8b7c" filter="url(#pencil)"/>
+<path d="M62 104 Q64 150 84 170 Q100 184 116 170 Q136 150 138 104 Q128 128 116 122 Q100 116 84 122 Q72 128 62 104 Z" fill="url(#hatch)" opacity="0.28" filter="url(#rough)"/>
+<path d="M62 104 Q64 150 84 170 Q100 184 116 170 Q136 150 138 104 Q128 128 116 122 Q100 116 84 122 Q72 128 62 104 Z" fill="none" stroke="#3a2e2a" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" filter="url(#rough)"/>
+<path d="M62 104 Q64 150 84 170 Q100 184 116 170 Q136 150 138 104 Q128 128 116 122 Q100 116 84 122 Q72 128 62 104 Z" fill="none" stroke="#3a2e2a" stroke-width="1.08" opacity=".55" stroke-linecap="round" filter="url(#rough2)" transform="translate(1.2 -0.8) "/>
+<path d="M80 122 Q100 108 120 122 Q100 132 80 122 Z" fill="#9b8b7c" filter="url(#pencil)"/>
+<path d="M80 122 Q100 108 120 122 Q100 132 80 122 Z" fill="url(#hatch)" opacity="0.2" filter="url(#rough)"/>
+<path d="M80 122 Q100 108 120 122 Q100 132 80 122 Z" fill="none" stroke="#3a2e2a" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" filter="url(#rough)"/>
+<path d="M80 122 Q100 108 120 122 Q100 132 80 122 Z" fill="none" stroke="#3a2e2a" stroke-width="0.81" opacity=".55" stroke-linecap="round" filter="url(#rough2)" transform="translate(1.2 -0.8) "/>
+<path d="M76 92 Q84 84 92 92" fill="none" stroke="#3a2e2a" stroke-width="3" opacity="1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<path d="M108 92 Q116 84 124 92" fill="none" stroke="#3a2e2a" stroke-width="3" opacity="1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<path d="M72 80 Q84 72 94 78" fill="none" stroke="#5d4e42" stroke-width="3.5" opacity="1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<path d="M106 78 Q116 72 128 80" fill="none" stroke="#5d4e42" stroke-width="3.5" opacity="1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<path d="M100 96 Q96 108 102 110" fill="none" stroke="#3a2e2a" stroke-width="2.2" opacity="0.8" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/></svg>

@@ -1,0 +1,21 @@
+# 角色設定。文稿裡用 :::對話 <角色名稱或代號> <表情> 來叫出角色。
+# image：static/img/characters/ 裡的檔名開頭；available_moods：有畫好的表情
+# moods：中文表情 → 圖檔表情代號
+nuo:
+  name: 小諾
+  image: nuo
+  side: left
+  available_moods: [default, happy, thinking, surprised]
+  moods: { 預設: default, 開心: happy, 思考: thinking, 驚訝: surprised }
+xray:
+  name: 小X
+  image: xray
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }
+rontgen:
+  name: 倫琴
+  image: rontgen
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }

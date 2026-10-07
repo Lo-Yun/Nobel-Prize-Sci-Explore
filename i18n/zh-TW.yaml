@@ -1,0 +1,47 @@
+# 介面文字（繁體中文）
+site_name: 諾貝爾科學探險
+site_tagline: 跟著小諾，把得獎的大發現變成你看得懂的故事
+fields:
+  physics: 物理學獎
+  chemistry: 化學獎
+  medicine: 生理學或醫學獎
+levels:
+  L1: { name: 探險家, who: 國小程度, desc: 用故事和遊戲認識大發現，不用公式。 }
+  L2: { name: 研究員, who: 中學・自學程度, desc: 搞懂原理和發現的過程，加一點點數學。 }
+  L3: { name: 學者, who: 大學程度, desc: 推導、數據、原始論文，一次看懂關鍵實驗。 }
+choose_level: 你想用哪一種程度探險？
+choose_level_hint: 隨時都可以在獎項頁面上切換。
+your_level: 目前程度
+home: 首頁
+read_aloud: 朗讀
+stop_reading: 停止
+tts_unavailable: 這個瀏覽器不支援語音朗讀。
+laureate: 得主
+citation: 官方頒獎理由
+original_citation: 原文
+mark_done: 我讀完了！
+done: 已讀完
+quiz_check: 對答案
+quiz_retry: 再試一次
+quiz_score: 答對 {score} / {total} 題
+correct: 答對了！
+wrong: 再想想看～
+loading_interactive: 互動載入中…
+note: 小知識
+draft_badge: 草稿
+review_badge: 審稿中
+draft_notice: 這一頁還在審稿中，內容可能會修改。
+sources: 參考資料
+related: 科學接力棒
+related_hint: 這個發現啟發了哪些後來的諾貝爾獎？
+coming_soon: 籌備中
+more_coming: 更多經典獎項正在籌備中。
+progress_title: 我的探險紀錄
+progress_hint: 紀錄只存在你自己的瀏覽器裡，不會上傳。
+progress_reset: 清除紀錄
+progress_reset_confirm: 再按一次確認清除
+progress_cleared: 紀錄已清除
+read_count: 已讀 {n} 篇
+other_language: 其他語言
+level_switch: 換個程度看
+minutes: 約 {n} 分鐘
