@@ -19,3 +19,39 @@ rontgen:
   side: right
   available_moods: [default, happy]
   moods: { 預設: default, 開心: happy }
+crystal:
+  name: 小晶
+  image: crystal
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }
+laue:
+  name: 勞厄
+  image: laue
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }
+wh-bragg:
+  name: 布拉格爸爸
+  image: wh-bragg
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }
+wl-bragg:
+  name: 布拉格兒子
+  image: wl-bragg
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }
+hounsfield:
+  name: 杭斯菲爾德
+  image: hounsfield
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }
+cormack:
+  name: 柯馬克
+  image: cormack
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }

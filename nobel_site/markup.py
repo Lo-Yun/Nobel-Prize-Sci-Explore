@@ -9,7 +9,8 @@
     :::
 
     :::互動 xray-lens       → 插入互動元件（元件代號見 static/js/interactives/）
-    :::
+    :::                       元件會自動依頁面程度（L1/L2/L3）調整；
+                              也可以在代號後面指定程度，例如 :::互動 bragg-law L3
 
     :::小知識 標題           → 重點提示框
     文字……
@@ -71,6 +72,7 @@ class RenderContext:
     """渲染時需要的外部資訊。"""
     characters: dict           # 角色資料（content/<lang>/characters.yaml）
     root: str = ""             # 網站根目錄的相對路徑，例如 "../../../"
+    level: str = "L1"          # 目前程度（互動元件會依程度調整難度）
     ui: dict = field(default_factory=dict)   # 介面文字
     interactives: set = field(default_factory=set)  # 這一頁用到的互動元件
     quiz_count: int = 0
@@ -136,9 +138,11 @@ def render_block(kind: str, args: list[str], body: str, ctx: RenderContext) -> s
             ctx.problems.append(f"互動元件名稱「{comp}」只能用小寫英文、數字和 -。")
             return ""
         ctx.interactives.add(comp)
+        mode = html.escape(args[1]) if len(args) > 1 else ""
         caption = _terms(_inline(body)) if body.strip() else ""
         return (
-            f'<figure class="interactive"><div class="interactive__stage" data-component="{comp}">'
+            f'<figure class="interactive"><div class="interactive__stage" data-component="{comp}" '
+            f'data-level="{ctx.level}" data-mode="{mode}">'
             f'<p class="interactive__fallback">{ctx.ui.get("loading_interactive", "互動載入中…")}</p></div>'
             + (f"<figcaption>{caption}</figcaption>" if caption else "")
             + "</figure>"

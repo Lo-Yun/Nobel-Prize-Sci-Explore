@@ -1,0 +1,45 @@
+year: 1915
+field: physics
+title: 父子檔量出原子的距離
+subtitle: 用 X 光分析晶體結構
+series: [xray]
+laureates:
+  - name: 威廉・亨利・布拉格
+    original: Sir William Henry Bragg
+    country: 英國
+    life: 1862–1942
+  - name: 威廉・勞倫斯・布拉格
+    original: Sir William Lawrence Bragg
+    country: 英國（生於澳洲）
+    life: 1890–1971
+citation: 表彰他們以 X 光分析晶體結構的貢獻。
+citation_original: for their services in the analysis of crystal structure by means of X-rays
+cover_character: wl-bragg-happy
+tags: [X光, 布拉格定律, 晶體結構, 食鹽]
+status:
+  L1: draft
+  L2: draft
+  L3: draft
+related:
+  - year: 1914
+    field: physics
+    title: 晶體的 X 光繞射
+    note: 勞厄的光點是這一切的起點。
+  - year: 1962
+    field: medicine
+    title: DNA 雙螺旋結構
+    note: 小布拉格當時領導的卡文迪許實驗室，正是華生與克里克工作的地方。
+  - year: 1964
+    field: chemistry
+    title: 解出生物分子的結構
+    note: 霍奇金用 X 光晶體學解出青黴素與維生素 B12 的結構。
+  - year: 1901
+    field: physics
+    title: X 光的發現
+    note: 一切從倫琴的螢光幕開始。
+sources:
+  - title: NobelPrize.org — The Nobel Prize in Physics 1915
+    url: https://www.nobelprize.org/prizes/physics/1915/summary/
+  - title: W. L. Bragg (1913). The Diffraction of Short Electromagnetic Waves by a Crystal. Proceedings of the Cambridge Philosophical Society 17, 43–57.
+  - title: W. H. Bragg & W. L. Bragg (1913). The Reflection of X-rays by Crystals. Proceedings of the Royal Society A 88, 428–438.
+    url: https://doi.org/10.1098/rspa.1913.0040

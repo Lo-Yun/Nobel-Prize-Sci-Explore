@@ -74,6 +74,17 @@ static/js/interactives/ 每個互動元件一個檔案，頁面只會載入有�
 | L2 | `rontgen-bench` | 倫琴的實驗桌：通電、黑紙板、關燈、磁鐵，以及論文中提到的五種材料 |
 | L3 | `xray-spectrum` | X 光管能譜（Kramers 定律＋鎢特性譜線）與骨／軟組織對比隨管電壓的變化（使用 NIST 衰減係數） |
 
+## X 光接力棒系列（第一批）
+
+| 獎項 | L1 互動 | L2 互動 | L3 互動 |
+|---|---|---|---|
+| 1901 物理：X 光的發現 | `xray-lens` | `rontgen-bench` | `xray-spectrum` |
+| 1914 物理：晶體繞射（勞厄） | `laue-pattern`（間距、旋轉） | `laue-pattern`（加上晶格種類） | `laue-pattern`（加上結構因子與消光） |
+| 1915 物理：布拉格定律 | `bragg-law`（對齊就笑臉） | `bragg-law`（路程差、d、λ） | `bragg-law`（強度掃描、實際數值） |
+| 1979 醫學：電腦斷層 | `ct-shadows` | `ct-shadows` ＋ `ct-reconstruct` | `ct-reconstruct`（濾波反投影、誤差） |
+
+互動元件會自動讀取頁面的程度（`data-level`），依程度顯示不同的功能。
+
 ## 下一步
 
 1. 主編審閱原型的三個程度，決定文風與深度是否合適。

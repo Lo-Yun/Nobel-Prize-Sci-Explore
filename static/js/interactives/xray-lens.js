@@ -144,14 +144,14 @@ NobelIX.register("xray-lens", function (stage, H, id) {
       x: OX, y: OY, width: 220 * S, height: 240 * S }, normal);
     xbg(xray);
     var g = H.svg("g", { transform: "translate(" + OX + " " + OY + ") scale(" + S + ")" }, xray);
-    H.svg("ellipse", { cx: 110, cy: 144, rx: 72, ry: 82, fill: SOFT }, g);
-    H.svg("path", { d: "M54 74 L66 22 L98 60 Z M166 74 L154 22 L122 60 Z", fill: SOFT }, g);
+    H.svg("ellipse", { cx: 110, cy: 140, rx: 86, ry: 82, fill: SOFT }, g);
+    H.svg("path", { d: "M50 92 Q36 50 62 34 Q82 42 94 68 Z M170 92 Q184 50 158 34 Q138 42 126 68 Z", fill: SOFT }, g);
     var b = H.svg("g", { filter: "url(#" + id + "-glow)" }, g);
     // 頭骨與大眼窩
-    H.svg("ellipse", { cx: 110, cy: 104, rx: 52, ry: 40, fill: BONE, "fill-opacity": 0.55 }, b);
-    H.svg("circle", { cx: 84, cy: 108, r: 19, fill: XBG }, b);
-    H.svg("circle", { cx: 136, cy: 108, r: 19, fill: XBG }, b);
-    H.svg("path", { d: "M104 128 L116 128 L110 146 Z", fill: BONE }, b);
+    H.svg("ellipse", { cx: 110, cy: 110, rx: 58, ry: 42, fill: BONE, "fill-opacity": 0.55 }, b);
+    H.svg("circle", { cx: 80, cy: 116, r: 20, fill: XBG }, b);
+    H.svg("circle", { cx: 140, cy: 116, r: 20, fill: XBG }, b);
+    H.svg("path", { d: "M103 138 L117 138 L110 152 Z", fill: BONE }, b);
     // 脊椎與肋骨
     for (var i = 0; i < 6; i++) H.svg("rect", { x: 104, y: 150 + i * 11, width: 12, height: 8, rx: 3, fill: BONE }, b);
     for (var k = 0; k < 4; k++) {
@@ -159,20 +159,20 @@ NobelIX.register("xray-lens", function (stage, H, id) {
       H.svg("path", { d: "M114 " + (156 + k * 12) + " Q" + (142 + k * 2) + " " + (160 + k * 12) + " " + (150 - k * 4) + " " + (176 + k * 12), fill: "none", stroke: BONE, "stroke-width": 4, "stroke-linecap": "round" }, b);
     }
     // 翅膀骨頭
-    H.svg("path", { d: "M58 150 L40 176 L36 196 M40 176 L48 198", fill: "none", stroke: BONE, "stroke-width": 5, "stroke-linecap": "round" }, b);
-    H.svg("path", { d: "M162 150 L180 120 L196 92 M180 120 L200 112", fill: "none", stroke: BONE, "stroke-width": 5, "stroke-linecap": "round" }, b);
+    H.svg("path", { d: "M44 150 L28 172 L24 190 M28 172 L36 192", fill: "none", stroke: BONE, "stroke-width": 5, "stroke-linecap": "round" }, b);
+    H.svg("path", { d: "M176 140 L190 112 L204 86 M190 112 L208 106", fill: "none", stroke: BONE, "stroke-width": 5, "stroke-linecap": "round" }, b);
     // 腳
-    H.svg("path", { d: "M96 208 L90 226 M124 208 L130 226", fill: "none", stroke: BONE, "stroke-width": 5, "stroke-linecap": "round" }, b);
+    H.svg("path", { d: "M86 206 L86 222 M134 206 L134 222", fill: "none", stroke: BONE, "stroke-width": 5, "stroke-linecap": "round" }, b);
     // 金屬：眼鏡和獎牌
     var m = H.svg("g", { filter: "url(#" + id + "-glow)" }, g);
-    H.svg("circle", { cx: 84, cy: 112, r: 25, fill: "none", stroke: "#fff", "stroke-width": 4.5 }, m);
-    H.svg("circle", { cx: 136, cy: 112, r: 25, fill: "none", stroke: "#fff", "stroke-width": 4.5 }, m);
-    H.svg("circle", { cx: 110, cy: 204, r: 13, fill: "#fff" }, m);
+    H.svg("circle", { cx: 80, cy: 116, r: 28, fill: "none", stroke: "#fff", "stroke-width": 4.5 }, m);
+    H.svg("circle", { cx: 140, cy: 116, r: 28, fill: "none", stroke: "#fff", "stroke-width": 4.5 }, m);
+    H.svg("circle", { cx: 110, cy: 194, r: 12, fill: "#fff" }, m);
     function tp(x, y) { return { x: OX + x * S, y: OY + y * S }; }
     return [
-      Object.assign(tp(110, 100), { label: { "zh-TW": "頭骨", en: "Skull" } }),
-      Object.assign(tp(84, 140), { label: { "zh-TW": "金屬眼鏡", en: "Metal glasses" } }),
-      Object.assign(tp(110, 204), { label: { "zh-TW": "獎牌", en: "Medal" } }),
+      Object.assign(tp(110, 92), { label: { "zh-TW": "頭骨", en: "Skull" } }),
+      Object.assign(tp(58, 128), { label: { "zh-TW": "金屬眼鏡", en: "Metal glasses" } }),
+      Object.assign(tp(110, 194), { label: { "zh-TW": "獎牌", en: "Medal" } }),
       Object.assign(tp(110, 175), { label: { "zh-TW": "肋骨", en: "Ribs" } })
     ];
   }

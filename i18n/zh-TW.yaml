@@ -45,3 +45,8 @@ read_count: 已讀 {n} 篇
 other_language: 其他語言
 level_switch: 換個程度看
 minutes: 約 {n} 分鐘
+read_this: 去看看
+series:
+  xray:
+    name: X 光接力棒
+    desc: 從一塊發亮的螢光幕開始，X 光一路接力：證明自己是波、量出原子的排列，最後變成醫院裡的電腦斷層掃描。

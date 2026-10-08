@@ -109,82 +109,83 @@ def svg(viewbox, body, seed=4):
 
 # ---------------------------------------------------------------- 小諾
 def draw_nuo(mood):
+    """小諾：圓滾滾的貓頭鷹。身體幾乎是一顆球，耳羽、翅膀、腳都是圓角。"""
     P = PALETTE
     b = []
-    # 耳羽
-    b.append(shape("path", P["body"], d="M54 74 L66 22 L98 60 Z"))
-    b.append(shape("path", P["body"], d="M166 74 L154 22 L122 60 Z"))
+    # 耳羽（圓圓的小角）
+    b.append(shape("path", P["body"], d="M50 92 Q36 50 62 34 Q82 42 94 68 Z"))
+    b.append(shape("path", P["body"], d="M170 92 Q184 50 158 34 Q138 42 126 68 Z"))
     # 翅膀（左）
-    b.append(shape("ellipse", P["wing"], cx=44, cy=152, rx=19, ry=46, transform="rotate(14 44 152)"))
+    b.append(shape("ellipse", P["wing"], cx=30, cy=154, rx=17, ry=34, transform="rotate(16 30 154)"))
     # 翅膀（右）：開心／預設時舉起來揮手
     if mood in ("default", "happy"):
-        b.append(shape("ellipse", P["wing"], cx=184, cy=108, rx=17, ry=44, transform="rotate(38 184 108)"))
+        b.append(shape("ellipse", P["wing"], cx=192, cy=104, rx=16, ry=32, transform="rotate(42 192 104)"))
     else:
-        b.append(shape("ellipse", P["wing"], cx=176, cy=152, rx=19, ry=46, transform="rotate(-14 176 152)"))
-    # 身體
-    b.append(shape("ellipse", P["body"], cx=110, cy=144, rx=72, ry=82))
+        b.append(shape("ellipse", P["wing"], cx=190, cy=154, rx=17, ry=34, transform="rotate(-16 190 154)"))
+    # 身體：圓球
+    b.append(shape("ellipse", P["body"], cx=110, cy=140, rx=86, ry=82))
     # 肚子
-    b.append(shape("ellipse", P["belly"], hatch=0.08, cx=110, cy=176, rx=46, ry=46))
-    for y in (160, 180, 200):
-        for x in (88, 110, 132):
-            b.append(line(f"M{x-6} {y} Q{x} {y+6} {x+6} {y}", width=1.6, opacity=0.55))
+    b.append(shape("ellipse", P["belly"], hatch=0.08, cx=110, cy=182, rx=54, ry=38))
+    for y, xs in ((170, (90, 110, 130)), (186, (80, 100, 120, 140)), (202, (92, 128))):
+        for x in xs:
+            b.append(line(f"M{x-5} {y} Q{x} {y+5} {x+5} {y}", width=1.5, opacity=0.5))
     # 臉盤
-    b.append(shape("circle", P["face"], hatch=0.06, cx=84, cy=112, r=29))
-    b.append(shape("circle", P["face"], hatch=0.06, cx=136, cy=112, r=29))
-    # 眼睛
+    b.append(shape("circle", P["face"], hatch=0.06, cx=80, cy=116, r=32))
+    b.append(shape("circle", P["face"], hatch=0.06, cx=140, cy=116, r=32))
+    # 眼睛（大大的，兩個亮點）
+    def sparkle(cx, cy, r):
+        b.append(f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="{INK}" filter="url(#rough)"/>')
+        b.append(f'<circle cx="{cx + r * .35:.1f}" cy="{cy - r * .38:.1f}" r="{r * .36:.1f}" fill="#fff"/>')
+        b.append(f'<circle cx="{cx - r * .35:.1f}" cy="{cy + r * .35:.1f}" r="{r * .16:.1f}" fill="#fff"/>')
     if mood == "happy":
-        b.append(line("M73 118 Q85 102 97 118", width=4.5))
-        b.append(line("M123 118 Q135 102 147 118", width=4.5))
+        b.append(line("M67 122 Q80 104 93 122", width=5))
+        b.append(line("M127 122 Q140 104 153 122", width=5))
     elif mood == "thinking":
-        for cx in (91, 143):
-            b.append(f'<circle cx="{cx}" cy="105" r="10" fill="{INK}" filter="url(#rough)"/>')
-            b.append(f'<circle cx="{cx+3}" cy="101" r="3.2" fill="#fff"/>')
-        b.append(line("M70 86 Q84 78 98 84", width=3))
-        b.append(line("M122 80 Q136 74 150 82", width=3))
+        sparkle(87, 108, 12); sparkle(147, 108, 12)
+        b.append(line("M64 84 Q80 76 96 82", width=3))
+        b.append(line("M124 78 Q140 72 156 80", width=3))
     elif mood == "surprised":
-        for cx in (84, 136):
-            b.append(f'<circle cx="{cx}" cy="112" r="13" fill="#fff" stroke="{INK}" stroke-width="2" filter="url(#rough)"/>')
-            b.append(f'<circle cx="{cx}" cy="112" r="6" fill="{INK}" filter="url(#rough)"/>')
+        for cx in (80, 140):
+            b.append(f'<circle cx="{cx}" cy="116" r="15" fill="#fff" stroke="{INK}" stroke-width="2" filter="url(#rough)"/>')
+            b.append(f'<circle cx="{cx}" cy="116" r="7" fill="{INK}" filter="url(#rough)"/>')
     else:
-        for cx in (86, 134):
-            b.append(f'<circle cx="{cx}" cy="114" r="10.5" fill="{INK}" filter="url(#rough)"/>')
-            b.append(f'<circle cx="{cx+3}" cy="110" r="3.4" fill="#fff"/>')
+        sparkle(82, 118, 13); sparkle(138, 118, 13)
     # 眼鏡
-    for cx in (84, 136):
-        b.append(f'<circle cx="{cx}" cy="112" r="25" fill="none" stroke="{P["glasses"]}" stroke-width="4" filter="url(#rough)"/>')
-    b.append(line("M108 108 Q110 102 112 108", width=3.5, color=P["glasses"]))
+    for cx in (80, 140):
+        b.append(f'<circle cx="{cx}" cy="116" r="28" fill="none" stroke="{P["glasses"]}" stroke-width="4" filter="url(#rough)"/>')
+    b.append(line("M107 112 Q110 105 113 112", width=3.5, color=P["glasses"]))
     # 臉頰
-    b.append(f'<ellipse cx="62" cy="140" rx="9" ry="6" fill="{P["cheek"]}" opacity=".55" filter="url(#pencil)"/>')
-    b.append(f'<ellipse cx="158" cy="140" rx="9" ry="6" fill="{P["cheek"]}" opacity=".55" filter="url(#pencil)"/>')
+    b.append(f'<ellipse cx="52" cy="148" rx="12" ry="8" fill="{P["cheek"]}" opacity=".6" filter="url(#pencil)"/>')
+    b.append(f'<ellipse cx="168" cy="148" rx="12" ry="8" fill="{P["cheek"]}" opacity=".6" filter="url(#pencil)"/>')
     # 嘴
     if mood == "surprised":
-        b.append(shape("ellipse", P["beak"], hatch=0, cx=110, cy=140, rx=8, ry=10))
+        b.append(shape("ellipse", P["beak"], hatch=0, cx=110, cy=146, rx=7, ry=9))
     else:
-        b.append(shape("path", P["beak"], hatch=0, d="M101 130 L119 130 L110 146 Z"))
+        b.append(shape("path", P["beak"], hatch=0, d="M101 138 Q110 133 119 138 Q115 150 110 153 Q105 150 101 138 Z"))
     # 思考時：翅膀托著下巴
     if mood == "thinking":
-        b.append(shape("ellipse", P["wing"], cx=134, cy=156, rx=12, ry=28, transform="rotate(-62 134 156)"))
+        b.append(shape("ellipse", P["wing"], cx=138, cy=166, rx=12, ry=24, transform="rotate(-64 138 166)"))
     # 獎牌
-    b.append(shape("path", P["ribbon_a"], hatch=0.1, stroke=1.8, d="M96 170 L104 170 L112 196 L106 198 Z"))
-    b.append(shape("path", P["ribbon_b"], hatch=0.1, stroke=1.8, d="M124 170 L116 170 L108 196 L114 198 Z"))
-    b.append(shape("circle", P["medal"], hatch=0.12, cx=110, cy=204, r=13))
-    b.append(line("M104 204 L110 198 L116 204 L110 210 Z", width=1.8, opacity=0.7))
-    # 腳
-    for cx in (88, 132):
+    b.append(shape("path", P["ribbon_a"], hatch=0.1, stroke=1.8, d="M98 164 L105 164 L112 186 L106 188 Z"))
+    b.append(shape("path", P["ribbon_b"], hatch=0.1, stroke=1.8, d="M122 164 L115 164 L108 186 L114 188 Z"))
+    b.append(shape("circle", P["medal"], hatch=0.12, cx=110, cy=194, r=12))
+    b.append(line("M105 194 L110 189 L115 194 L110 199 Z", width=1.8, opacity=0.7))
+    # 腳（小圓腳掌）
+    for cx in (86, 134):
         for dx in (-7, 0, 7):
-            b.append(shape("ellipse", P["feet"], hatch=0, stroke=1.6, cx=cx + dx, cy=228, rx=5, ry=7))
+            b.append(shape("circle", P["feet"], hatch=0, stroke=1.6, cx=cx + dx, cy=224, r=6))
     # 心情符號
     if mood == "thinking":
-        b.append(line("M186 30 Q194 14 206 26 Q212 38 198 44 L198 54", width=4))
-        b.append(f'<circle cx="198" cy="64" r="3" fill="{INK}"/>')
+        b.append(line("M186 26 Q194 10 206 22 Q212 34 198 40 L198 50", width=4))
+        b.append(f'<circle cx="198" cy="60" r="3" fill="{INK}"/>')
     if mood == "surprised":
-        b.append(line("M190 26 L192 54", width=4))
-        b.append(f'<circle cx="193" cy="64" r="3" fill="{INK}"/>')
-        b.append(line("M206 34 L202 56", width=4))
-        b.append(f'<circle cx="201" cy="65" r="3" fill="{INK}"/>')
+        b.append(line("M192 22 L194 50", width=4))
+        b.append(f'<circle cx="195" cy="60" r="3" fill="{INK}"/>')
+        b.append(line("M208 30 L204 52", width=4))
+        b.append(f'<circle cx="203" cy="61" r="3" fill="{INK}"/>')
     if mood == "happy":
-        b.append(line("M20 40 L28 48 M28 40 L20 48", width=2.5, color="#e9b949"))
-        b.append(line("M196 30 L206 40 M206 30 L196 40", width=2.5, color="#e9b949"))
+        b.append(line("M14 46 L22 54 M22 46 L14 54", width=2.5, color="#e9b949"))
+        b.append(line("M200 26 L210 36 M210 26 L200 36", width=2.5, color="#e9b949"))
     return svg("0 0 220 240", "\n".join(b), seed=4)
 
 
@@ -243,13 +244,109 @@ def draw_rontgen(mood):
     return svg("0 0 200 240", "\n".join(b), seed=6)
 
 
+# ---------------------------------------------------------------- 科學家（通用畫法）
+SCIENTISTS = {
+    # 名稱: 參數。hair：swept 往後梳、side 旁分、bald 禿頂、none
+    "laue":     dict(hair="side", hair_color="#4e4038", mustache=True, beard=False, glasses=False, suit="#3f5a6b"),
+    "wh-bragg": dict(hair="bald", hair_color="#c9c4bc", mustache=True, beard=False, glasses=False, suit="#5b4a3f", old=True),
+    "wl-bragg": dict(hair="side", hair_color="#7a5a3c", mustache=False, beard=False, glasses=False, suit="#4b5f8a"),
+    "hounsfield": dict(hair="bald", hair_color="#b9b2a8", mustache=False, beard=False, glasses=False, suit="#55606e", old=True),
+    "cormack":  dict(hair="swept", hair_color="#9a948c", mustache=False, beard=False, glasses=True, suit="#6b5a4a"),
+}
+
+
+def draw_scientist(mood, hair="side", hair_color="#5d4e42", mustache=False, beard=False,
+                   glasses=False, suit="#4a4e69", old=False):
+    P = PALETTE
+    b = []
+    b.append(shape("path", suit, hatch=0.2, d="M28 238 Q34 170 100 162 Q166 170 172 238 Z"))
+    b.append(shape("path", P["shirt"], hatch=0.05, stroke=1.8, d="M82 166 L100 200 L118 166 Z"))
+    b.append(shape("path", "#2b2d42", hatch=0, stroke=1.6, d="M94 178 L100 188 L106 178 L100 172 Z"))
+    b.append(shape("ellipse", P["skin"], hatch=0, stroke=1.8, cx=60, cy=100, rx=8, ry=12))
+    b.append(shape("ellipse", P["skin"], hatch=0, stroke=1.8, cx=140, cy=100, rx=8, ry=12))
+    b.append(shape("ellipse", P["skin"], hatch=0.06, cx=100, cy=100, rx=40, ry=50))
+    if hair == "side":
+        b.append(shape("path", hair_color, hatch=0.25,
+                       d="M60 96 Q54 52 92 46 Q138 42 142 92 Q136 70 118 66 Q96 64 84 58 Q70 70 60 96 Z"))
+    elif hair == "swept":
+        b.append(shape("path", hair_color, hatch=0.25,
+                       d="M60 94 Q56 50 100 46 Q144 50 140 94 Q134 70 118 68 Q100 62 82 68 Q66 70 60 94 Z"))
+    elif hair == "bald":
+        b.append(shape("path", hair_color, hatch=0.25, d="M60 110 Q56 84 66 72 Q70 90 72 108 Z"))
+        b.append(shape("path", hair_color, hatch=0.25, d="M140 110 Q144 84 134 72 Q130 90 128 108 Z"))
+    if old:
+        b.append(line("M80 70 Q100 66 120 70", width=1.6, opacity=0.5))
+        b.append(line("M70 108 Q74 114 72 120", width=1.4, opacity=0.4))
+        b.append(line("M130 108 Q126 114 128 120", width=1.4, opacity=0.4))
+    # 眼睛
+    if mood == "happy":
+        b.append(line("M76 96 Q84 88 92 96", width=3))
+        b.append(line("M108 96 Q116 88 124 96", width=3))
+    else:
+        b.append(f'<circle cx="84" cy="96" r="4.5" fill="{INK}" filter="url(#rough)"/>')
+        b.append(f'<circle cx="116" cy="96" r="4.5" fill="{INK}" filter="url(#rough)"/>')
+    brow = hair_color if hair != "bald" else "#8a8178"
+    b.append(line("M73 84 Q84 78 94 82", width=3.2, color=brow))
+    b.append(line("M106 82 Q116 78 127 84", width=3.2, color=brow))
+    if glasses:
+        for cx in (84, 116):
+            b.append(f'<circle cx="{cx}" cy="96" r="12" fill="none" stroke="{INK}" stroke-width="2.6" filter="url(#rough)"/>')
+        b.append(line("M96 95 Q100 92 104 95", width=2.4))
+    b.append(line("M100 100 Q96 112 102 114", width=2.2, opacity=0.8))
+    if mustache:
+        b.append(shape("path", hair_color, hatch=0.2, stroke=1.6,
+                       d="M80 124 Q90 114 100 120 Q110 114 120 124 Q110 128 100 124 Q90 128 80 124 Z"))
+    mouth = "M88 132 Q100 142 112 132" if mood == "happy" else "M90 134 Q100 138 110 134"
+    b.append(line(mouth, width=2.4))
+    if beard:
+        b.append(shape("path", hair_color, hatch=0.28, d="M64 108 Q66 150 100 164 Q134 150 136 108 Q120 140 100 138 Q80 140 64 108 Z"))
+    return svg("0 0 200 240", "\n".join(b), seed=6)
+
+
+# ---------------------------------------------------------------- 小晶（食鹽晶體）
+def draw_crystal(mood):
+    """小晶：一顆食鹽（氯化鈉）小方塊。表面點點是排得整整齊齊的原子。"""
+    b = []
+    top, left, right = "#eef7fb", "#cfe6f2", "#b3d4e6"
+    b.append(shape("path", top, hatch=0.06, d="M80 30 L144 58 L80 86 L16 58 Z"))
+    b.append(shape("path", left, hatch=0.1, d="M16 58 L80 86 L80 156 L16 128 Z"))
+    b.append(shape("path", right, hatch=0.16, d="M80 86 L144 58 L144 128 L80 156 Z"))
+    # 原子點點（鈉：小紫點；氯：大綠點，交錯排列）
+    for i in range(4):
+        for j in range(4):
+            x = 16 + (i + 0.5) * 16 + 0
+            y = 58 + (i + 0.5) * 7 + (j + 0.5) * 17.5
+            big = (i + j) % 2 == 0
+            b.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{3.6 if big else 2.4}" fill="{"#6cbf84" if big else "#a77fd6"}" opacity=".7"/>')
+    for i in range(4):
+        for j in range(4):
+            x = 80 + (i + 0.5) * 16
+            y = 86 - (i + 0.5) * 7 + (j + 0.5) * 17.5
+            big = (i + j) % 2 == 1
+            b.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{3.6 if big else 2.4}" fill="{"#6cbf84" if big else "#a77fd6"}" opacity=".7"/>')
+    # 臉（畫在左前面）
+    if mood == "happy":
+        b.append(line("M34 98 Q40 90 46 98", width=3.2))
+        b.append(line("M54 106 Q60 98 66 106", width=3.2))
+    else:
+        b.append(f'<circle cx="40" cy="96" r="5" fill="{INK}"/><circle cx="41.6" cy="94" r="1.7" fill="#fff"/>')
+        b.append(f'<circle cx="60" cy="104" r="5" fill="{INK}"/><circle cx="61.6" cy="102" r="1.7" fill="#fff"/>')
+    b.append(line("M42 114 Q50 124 60 118", width=2.6))
+    b.append(f'<ellipse cx="32" cy="110" rx="5" ry="3.5" fill="{PALETTE["cheek"]}" opacity=".55"/>')
+    b.append(f'<ellipse cx="68" cy="124" rx="5" ry="3.5" fill="{PALETTE["cheek"]}" opacity=".55"/>')
+    return svg("0 0 160 170", "\n".join(b), seed=9)
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     jobs = {
         "nuo": (draw_nuo, ["default", "happy", "thinking", "surprised"]),
         "xray": (draw_xray, ["default", "happy"]),
         "rontgen": (draw_rontgen, ["default", "happy"]),
+        "crystal": (draw_crystal, ["default", "happy"]),
     }
+    for name, params in SCIENTISTS.items():
+        jobs[name] = ((lambda p: (lambda mood: draw_scientist(mood, **p)))(params), ["default", "happy"])
     for name, (fn, moods) in jobs.items():
         for mood in moods:
             path = OUT / f"{name}-{mood}.svg"

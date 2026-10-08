@@ -227,6 +227,25 @@ img { max-width: 100%; }
 .relay__year { font-family: var(--font-data); font-weight: 600; color: var(--field); }
 .relay__field { font-size: .78rem; color: var(--ink-soft); }
 .relay__note { font-size: var(--step--1); color: var(--ink-soft); }
+.relay__link { display: grid; gap: 2px; color: inherit; text-decoration: none; }
+.relay__item.has-link { box-shadow: 4px 4px 0 var(--field); }
+.relay__item.has-link:hover { background: var(--highlight); }
+.relay__go { font-size: var(--step--1); color: var(--field); font-weight: 700; margin-top: 4px; }
+
+/* 主題系列（首頁） */
+.series { margin-top: 36px; background: var(--paper-2); border: 2px solid var(--ink); border-radius: var(--radius); padding: 4px 18px 18px;
+  box-shadow: 6px 6px 0 var(--L3); }
+.series h2 { font-size: var(--step-2); margin: 12px 0 0; }
+.series__desc { color: var(--ink-soft); margin: 4px 0 14px; }
+.series__path { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; counter-reset: step; }
+.series__path li { position: relative; }
+.series__step { display: grid; gap: 2px; padding: 10px 12px; border-radius: 12px; border: 2px solid var(--field); background: var(--paper);
+  color: var(--ink); text-decoration: none; line-height: 1.4; height: 100%; }
+.series__step:hover { background: var(--highlight); }
+.series__step img { width: 56px; height: 56px; object-fit: contain; justify-self: end; margin: -4px -4px -8px 0; }
+.series__year { font-family: var(--font-data); font-weight: 600; color: var(--field); }
+.series__field { font-size: .78rem; color: var(--ink-soft); }
+.series__title { font-family: var(--font-display); font-size: 1.08rem; }
 
 .finish { text-align: center; margin: 40px 0 20px; }
 .finish__btn { font-family: var(--font-display); font-size: var(--step-1); font-weight: 700; padding: 10px 28px; border-radius: 999px;

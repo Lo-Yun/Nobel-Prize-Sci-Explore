@@ -49,8 +49,18 @@ def render_prize_page(prize: C.Prize, level: str, root: str, *, env=None, previe
     cfg = C.load_config()
     ui = C.load_ui(prize.lang)
     fm, body = prize.levels.get(level, ({}, ""))
-    ctx = RenderContext(characters=C.load_characters(prize.lang), root=root, ui=ui)
+    ctx = RenderContext(characters=C.load_characters(prize.lang), root=root, ui=ui, level=level)
     intro_html, sections = render_level(body, ctx)
+
+    # 科學接力棒：已經有頁面的相關獎項就加上連結
+    related = []
+    for r in prize.meta.get("related") or []:
+        r = dict(r)
+        slug = f'{r.get("year")}-{r.get("field")}'
+        if C.SLUG_RE.match(slug) and (C.CONTENT / prize.lang / "prizes" / slug).exists():
+            target = level if C.level_path(prize.lang, slug, level).exists() else "L1"
+            r["href"] = f"{root}{prize_url(prize.lang, slug, target)}"
+        related.append(r)
 
     other_langs = [
         lg for lg in C.list_languages()
@@ -60,6 +70,7 @@ def render_prize_page(prize: C.Prize, level: str, root: str, *, env=None, previe
         **common_context(prize.lang, root, cfg, ui),
         prize=prize,
         meta=prize.meta,
+        related=related,
         level=level,
         fm=fm,
         intro_html=intro_html,
@@ -84,9 +95,15 @@ def render_home(lang: str, root: str, env=None) -> str:
     if not cfg.get("show_drafts", True):
         prizes = [p for p in prizes if any(p.status(lv) == "final" for lv in p.levels)]
     by_field = {f: [p for p in prizes if p.field == f] for f in cfg.get("fields", [])}
+    series = {}
+    for key in (ui.get("series") or {}):
+        members = sorted((p for p in prizes if key in (p.meta.get("series") or [])), key=lambda p: p.year)
+        if members:
+            series[key] = members
     return env.get_template("home.html").render(
         **common_context(lang, root, cfg, ui),
         by_field=by_field,
+        series=series,
         prize_href=lambda p, lv: f"{root}{prize_url(lang, p.slug, lv)}",
         all_langs=[lg for lg in C.list_languages() if C.list_prizes(lg)],
     )

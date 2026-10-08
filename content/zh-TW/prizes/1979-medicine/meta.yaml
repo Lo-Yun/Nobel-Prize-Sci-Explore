@@ -1,0 +1,40 @@
+year: 1979
+field: medicine
+title: 把身體切成薄片來看
+subtitle: 電腦斷層掃描（CT）
+series: [xray]
+laureates:
+  - name: 艾倫・柯馬克
+    original: Allan M. Cormack
+    country: 美國（生於南非）
+    life: 1924–1998
+  - name: 高弗雷・杭斯菲爾德
+    original: Godfrey N. Hounsfield
+    country: 英國
+    life: 1919–2004
+citation: 表彰他們發展電腦輔助斷層掃描。
+citation_original: for the development of computer assisted tomography
+cover_character: hounsfield-happy
+tags: [X光, 電腦斷層, 醫學影像, 影像重建]
+status:
+  L1: draft
+  L2: draft
+  L3: draft
+related:
+  - year: 1901
+    field: physics
+    title: X 光的發現
+    note: CT 用的仍然是倫琴的 X 光，只是從許多角度拍攝。
+  - year: 2003
+    field: medicine
+    title: 磁振造影（MRI）
+    note: 另一種切片影像，用磁場和無線電波，不用 X 光。
+sources:
+  - title: NobelPrize.org — The Nobel Prize in Physiology or Medicine 1979
+    url: https://www.nobelprize.org/prizes/medicine/1979/summary/
+  - title: A. M. Cormack (1963). Representation of a Function by Its Line Integrals, with Some Radiological Applications. Journal of Applied Physics 34, 2722–2727.
+    url: https://doi.org/10.1063/1.1729798
+  - title: G. N. Hounsfield (1973). Computerized transverse axial scanning (tomography). British Journal of Radiology 46, 1016–1022.
+    url: https://doi.org/10.1259/0007-1285-46-552-1016
+  - title: NobelPrize.org — A. M. Cormack, Nobel Lecture (1979). Early two-dimensional reconstruction and recent topics stemming from it.
+    url: https://www.nobelprize.org/prizes/medicine/1979/cormack/lecture/

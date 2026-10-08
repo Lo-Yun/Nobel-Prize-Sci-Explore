@@ -45,3 +45,8 @@ read_count: "{n} read"
 other_language: Other languages
 level_switch: Switch level
 minutes: About {n} min
+read_this: Read it
+series:
+  xray:
+    name: The X-ray relay
+    desc: From a glowing screen to crystal structures and CT scanners.

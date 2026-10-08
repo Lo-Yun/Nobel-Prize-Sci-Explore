@@ -114,7 +114,18 @@ python tools/draw_characters.py
 
 角色是用程式畫的 SVG（彩色素描風格）。要改顏色或表情，請修改這個檔案再重新執行。
 
-## 上線
+## 上線（GitHub Pages）
 
-`python build.py` 產生的 `_site/` 是純靜態網頁，可以直接放到 GitHub Pages、Cloudflare Pages 或任何網頁主機。
+儲存庫已經附上自動發佈設定（`.github/workflows/pages.yml`）。只要推送到預設分支，GitHub 就會自動執行 `python build.py`，並把 `_site/` 發佈到 GitHub Pages。
+
+第一次使用前，請先做一次設定：
+
+1. 到 GitHub 儲存庫的 **Settings → Pages**。
+2. 在 **Build and deployment → Source** 選擇 **GitHub Actions**。
+3. 到 **Actions** 分頁，選「發佈網站到 GitHub Pages」，按 **Run workflow**（或推送一次新的修改）。
+
+完成後，網址是 `https://<帳號>.github.io/<儲存庫名稱>/`。
+
+注意：私人（private）儲存庫要使用 GitHub Pages，需要付費方案（GitHub Pro 以上），而且發佈出去的網站任何人都看得到。
+
 正式上線前，請把 `config.yaml` 的 `show_drafts` 改成 `false`，這樣只有「已定稿」的頁面會被發佈。

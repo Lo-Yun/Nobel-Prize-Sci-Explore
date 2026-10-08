@@ -31,6 +31,27 @@
   </div>
 </section>
 
+{% for key, members in series.items() %}
+{% set info = ui.series[key] %}
+<section class="series">
+  <h2>{{ info.name }}</h2>
+  <p class="series__desc">{{ info.desc }}</p>
+  <ol class="series__path">
+    {% for p in members %}
+    <li class="field-{{ p.field }}">
+      <a class="series__step" href="{{ prize_href(p, 'L1') }}" data-prize-card="{{ lang }}/{{ p.slug }}"
+         data-hrefs='{{ {"L1": prize_href(p, "L1"), "L2": prize_href(p, "L2"), "L3": prize_href(p, "L3")}|tojson }}'>
+        <span class="series__year">{{ p.year }}</span>
+        <span class="series__field">{{ ui.fields[p.field] }}</span>
+        <span class="series__title">{{ p.meta.title }}</span>
+        {% if p.meta.cover_character %}<img src="{{ root }}static/img/characters/{{ p.meta.cover_character }}.svg" alt="">{% endif %}
+      </a>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+{% endfor %}
+
 {% for field, prizes in by_field.items() %}
 <section class="shelf field-{{ field }}">
   <h2 class="shelf__title">{{ ui.fields[field] }}</h2>

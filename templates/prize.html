@@ -70,17 +70,19 @@
   </section>
   {% endfor %}
 
-  {% if meta.related %}
+  {% if related %}
   <section class="related">
     <h2>{{ ui.related }}</h2>
     <p class="related__hint">{{ ui.related_hint }}</p>
     <ol class="relay">
-      {% for r in meta.related %}
-      <li class="relay__item field-{{ r.field }}">
+      {% for r in related %}
+      <li class="relay__item field-{{ r.field }}{% if r.href %} has-link{% endif %}">
+        {% if r.href %}<a class="relay__link" href="{{ r.href }}">{% endif %}
         <span class="relay__year">{{ r.year }}</span>
         <span class="relay__field">{{ ui.fields[r.field] }}</span>
         <strong>{{ r.title }}</strong>
         {% if r.note %}<span class="relay__note">{{ r.note }}</span>{% endif %}
+        {% if r.href %}<span class="relay__go">{{ ui.read_this }} →</span></a>{% endif %}
       </li>
       {% endfor %}
     </ol>

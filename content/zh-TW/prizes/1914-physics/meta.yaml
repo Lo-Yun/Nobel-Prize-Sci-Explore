@@ -1,0 +1,37 @@
+year: 1914
+field: physics
+title: 晶體裡的光點密碼
+subtitle: X 光的晶體繞射
+series: [xray]
+laureates:
+  - name: 馬克斯・馮・勞厄
+    original: Max von Laue
+    country: 德國
+    life: 1879–1960
+citation: 表彰他發現 X 光通過晶體時會產生繞射。
+citation_original: for his discovery of the diffraction of X-rays by crystals
+cover_character: crystal-happy
+tags: [X光, 繞射, 晶體, 波]
+status:
+  L1: draft
+  L2: draft
+  L3: draft
+related:
+  - year: 1901
+    field: physics
+    title: X 光的發現
+    note: 倫琴發現了 X 光，卻不知道它到底是什麼。
+  - year: 1915
+    field: physics
+    title: 用 X 光分析晶體結構
+    note: 布拉格父子把勞厄的光點變成量測原子位置的工具。
+  - year: 1962
+    field: medicine
+    title: DNA 雙螺旋結構
+    note: 繞射照片後來揭開了生命分子的形狀。
+sources:
+  - title: NobelPrize.org — The Nobel Prize in Physics 1914
+    url: https://www.nobelprize.org/prizes/physics/1914/summary/
+  - title: W. Friedrich, P. Knipping, M. Laue (1912). Interferenz-Erscheinungen bei Röntgenstrahlen. Sitzungsberichte der Bayerischen Akademie der Wissenschaften, 303–322.
+  - title: NobelPrize.org — Max von Laue, Nobel Lecture (1920). Concerning the detection of X-ray interferences.
+    url: https://www.nobelprize.org/prizes/physics/1914/laue/lecture/

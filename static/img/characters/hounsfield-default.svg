@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240">
+<defs>
+  <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="6" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <filter id="rough2" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="11" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="G" yChannelSelector="R"/>
+  </filter>
+  <filter id="pencil" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11" result="grain"/>
+    <feColorMatrix in="grain" type="matrix"
+      values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.2 1.75" result="mask"/>
+    <feComposite in="SourceGraphic" in2="mask" operator="in" result="tex"/>
+    <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="6" result="n"/>
+    <feDisplacementMap in="tex" in2="n" scale="3.2" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(38)">
+    <line x1="0" y1="0" x2="0" y2="5" stroke="#3a2e2a" stroke-width="1.1"/>
+  </pattern>
+</defs>
+<path d="M28 238 Q34 170 100 162 Q166 170 172 238 Z" fill="#55606e" filter="url(#pencil)"/>
+<path d="M28 238 Q34 170 100 162 Q166 170 172 238 Z" fill="url(#hatch)" opacity="0.2" filter="url(#rough)"/>
+<path d="M28 238 Q34 170 100 162 Q166 170 172 238 Z" fill="none" stroke="#3a2e2a" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" filter="url(#rough)"/>
+<path d="M28 238 Q34 170 100 162 Q166 170 172 238 Z" fill="none" stroke="#3a2e2a" stroke-width="1.08" opacity=".55" stroke-linecap="round" filter="url(#rough2)" transform="translate(1.2 -0.8) "/>
+<path d="M82 166 L100 200 L118 166 Z" fill="#fbf7ef" filter="url(#pencil)"/>
+<path d="M82 166 L100 200 L118 166 Z" fill="url(#hatch)" opacity="0.05" filter="url(#rough)"/>
+<path d="M82 166 L100 200 L118 166 Z" fill="none" stroke="#3a2e2a" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" filter="url(#rough)"/>
+<path d="M82 166 L100 200 L118 166 Z" fill="none" stroke="#3a2e2a" stroke-width="0.81" opacity=".55" stroke-linecap="round" filter="url(#rough2)" transform="translate(1.2 -0.8) "/>
+<path d="M94 178 L100 188 L106 178 L100 172 Z" fill="#2b2d42" filter="url(#pencil)"/>
+<path d="M94 178 L100 188 L106 178 L100 172 Z" fill="none" stroke="#3a2e2a" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" filter="url(#rough)"/>
+<path d="M94 178 L100 188 L106 178 L100 172 Z" fill="none" stroke="#3a2e2a" stroke-width="0.72" opacity=".55" stroke-linecap="round" filter="url(#rough2)" transform="translate(1.2 -0.8) "/>
+<ellipse cx="60" cy="100" rx="8" ry="12" fill="#f2c9a0" filter="url(#pencil)"/>
+<ellipse cx="60" cy="100" rx="8" ry="12" fill="none" stroke="#3a2e2a" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" filter="url(#rough)"/>
+<ellipse cx="60" cy="100" rx="8" ry="12" fill="none" stroke="#3a2e2a" stroke-width="0.81" opacity=".55" stroke-linecap="round" filter="url(#rough2)" transform="translate(1.2 -0.8) "/>
+<ellipse cx="140" cy="100" rx="8" ry="12" fill="#f2c9a0" filter="url(#pencil)"/>
+<ellipse cx="140" cy="100" rx="8" ry="12" fill="none" stroke="#3a2e2a" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" filter="url(#rough)"/>
+<ellipse cx="140" cy="100" rx="8" ry="12" fill="none" stroke="#3a2e2a" stroke-width="0.81" opacity=".55" stroke-linecap="round" filter="url(#rough2)" transform="translate(1.2 -0.8) "/>
+<ellipse cx="100" cy="100" rx="40" ry="50" fill="#f2c9a0" filter="url(#pencil)"/>
+<ellipse cx="100" cy="100" rx="40" ry="50" fill="url(#hatch)" opacity="0.06" filter="url(#rough)"/>
+<ellipse cx="100" cy="100" rx="40" ry="50" fill="none" stroke="#3a2e2a" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" filter="url(#rough)"/>
+<ellipse cx="100" cy="100" rx="40" ry="50" fill="none" stroke="#3a2e2a" stroke-width="1.08" opacity=".55" stroke-linecap="round" filter="url(#rough2)" transform="translate(1.2 -0.8) "/>
+<path d="M60 110 Q56 84 66 72 Q70 90 72 108 Z" fill="#b9b2a8" filter="url(#pencil)"/>
+<path d="M60 110 Q56 84 66 72 Q70 90 72 108 Z" fill="url(#hatch)" opacity="0.25" filter="url(#rough)"/>
+<path d="M60 110 Q56 84 66 72 Q70 90 72 108 Z" fill="none" stroke="#3a2e2a" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" filter="url(#rough)"/>
+<path d="M60 110 Q56 84 66 72 Q70 90 72 108 Z" fill="none" stroke="#3a2e2a" stroke-width="1.08" opacity=".55" stroke-linecap="round" filter="url(#rough2)" transform="translate(1.2 -0.8) "/>
+<path d="M140 110 Q144 84 134 72 Q130 90 128 108 Z" fill="#b9b2a8" filter="url(#pencil)"/>
+<path d="M140 110 Q144 84 134 72 Q130 90 128 108 Z" fill="url(#hatch)" opacity="0.25" filter="url(#rough)"/>
+<path d="M140 110 Q144 84 134 72 Q130 90 128 108 Z" fill="none" stroke="#3a2e2a" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" filter="url(#rough)"/>
+<path d="M140 110 Q144 84 134 72 Q130 90 128 108 Z" fill="none" stroke="#3a2e2a" stroke-width="1.08" opacity=".55" stroke-linecap="round" filter="url(#rough2)" transform="translate(1.2 -0.8) "/>
+<path d="M80 70 Q100 66 120 70" fill="none" stroke="#3a2e2a" stroke-width="1.6" opacity="0.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<path d="M70 108 Q74 114 72 120" fill="none" stroke="#3a2e2a" stroke-width="1.4" opacity="0.4" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<path d="M130 108 Q126 114 128 120" fill="none" stroke="#3a2e2a" stroke-width="1.4" opacity="0.4" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<circle cx="84" cy="96" r="4.5" fill="#3a2e2a" filter="url(#rough)"/>
+<circle cx="116" cy="96" r="4.5" fill="#3a2e2a" filter="url(#rough)"/>
+<path d="M73 84 Q84 78 94 82" fill="none" stroke="#8a8178" stroke-width="3.2" opacity="1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<path d="M106 82 Q116 78 127 84" fill="none" stroke="#8a8178" stroke-width="3.2" opacity="1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<path d="M100 100 Q96 112 102 114" fill="none" stroke="#3a2e2a" stroke-width="2.2" opacity="0.8" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<path d="M90 134 Q100 138 110 134" fill="none" stroke="#3a2e2a" stroke-width="2.4" opacity="1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/></svg>
