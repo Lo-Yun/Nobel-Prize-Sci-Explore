@@ -251,6 +251,8 @@ SCIENTISTS = {
     "wh-bragg": dict(hair="bald", hair_color="#c9c4bc", mustache=True, beard=False, glasses=False, suit="#5b4a3f", old=True),
     "wl-bragg": dict(hair="side", hair_color="#7a5a3c", mustache=False, beard=False, glasses=False, suit="#4b5f8a"),
     "hounsfield": dict(hair="bald", hair_color="#b9b2a8", mustache=False, beard=False, glasses=False, suit="#55606e", old=True),
+    "hopfield": dict(hair="bald", hair_color="#e4e0d8", mustache=False, beard=False, glasses=False, suit="#3d5c4a", old=True),
+    "hinton":   dict(hair="swept", hair_color="#b8b2aa", mustache=False, beard=False, glasses=False, suit="#38404f", old=True),
     "cormack":  dict(hair="swept", hair_color="#9a948c", mustache=False, beard=False, glasses=True, suit="#6b5a4a"),
 }
 
@@ -337,6 +339,40 @@ def draw_crystal(mood):
     return svg("0 0 160 170", "\n".join(b), seed=9)
 
 
+# ---------------------------------------------------------------- 小元（神經元）
+def draw_neuron(mood):
+    """小元：一顆神經元。圓圓的細胞本體，四周是樹突，下方拖著一條軸突。"""
+    b = []
+    body, branch, tip = "#f4a6a0", "#e98b84", "#ffd3a8"
+    # 軸突（尾巴）與末梢
+    b.append(line("M80 112 Q86 140 76 160 Q68 176 82 186", width=7, color=branch))
+    for d in ("M82 186 L70 198", "M82 186 L84 202", "M82 186 L96 196"):
+        b.append(line(d, width=3.5, color=branch))
+    for cx, cy in ((70, 198), (84, 202), (96, 196)):
+        b.append(shape("circle", tip, hatch=0, stroke=1.4, cx=cx, cy=cy, r=4.5))
+    # 樹突（向外分叉）
+    for d in ("M50 64 Q34 52 22 30 M34 52 L16 54", "M110 64 Q126 52 138 30 M126 52 L146 54",
+              "M44 90 Q24 96 12 114 M26 96 L10 92", "M116 90 Q136 96 148 114 M134 96 L150 92",
+              "M80 40 Q78 22 86 8 M79 24 L66 14"):
+        b.append(line(d, width=5, color=branch))
+    # 細胞本體
+    b.append(shape("circle", body, hatch=0.1, cx=80, cy=76, r=40))
+    # 臉
+    if mood == "happy":
+        b.append(line("M58 78 Q65 70 72 78", width=3.2))
+        b.append(line("M88 78 Q95 70 102 78", width=3.2))
+    else:
+        for cx in (65, 95):
+            b.append(f'<circle cx="{cx}" cy="76" r="5.5" fill="{INK}"/><circle cx="{cx + 1.8}" cy="74" r="1.9" fill="#fff"/>')
+    b.append(line("M70 90 Q80 99 90 90", width=2.8))
+    b.append(f'<ellipse cx="54" cy="88" rx="6" ry="4" fill="{PALETTE["cheek"]}" opacity=".6"/>')
+    b.append(f'<ellipse cx="106" cy="88" rx="6" ry="4" fill="{PALETTE["cheek"]}" opacity=".6"/>')
+    if mood == "happy":  # 放電的小火花
+        b.append(line("M140 140 L148 150 L142 152 L150 164", width=2.6, color="#e9b949"))
+        b.append(line("M18 140 L12 150 L18 152 L10 164", width=2.6, color="#e9b949"))
+    return svg("0 0 160 210", "\n".join(b), seed=12)
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     jobs = {
@@ -344,6 +380,7 @@ def main():
         "xray": (draw_xray, ["default", "happy"]),
         "rontgen": (draw_rontgen, ["default", "happy"]),
         "crystal": (draw_crystal, ["default", "happy"]),
+        "neuron": (draw_neuron, ["default", "happy"]),
     }
     for name, params in SCIENTISTS.items():
         jobs[name] = ((lambda p: (lambda mood: draw_scientist(mood, **p)))(params), ["default", "happy"])

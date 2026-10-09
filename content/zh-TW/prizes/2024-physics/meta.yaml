@@ -1,0 +1,47 @@
+year: 2024
+field: physics
+title: 會「回想」的人工神經網路
+subtitle: 人工神經網路與機器學習的物理基礎
+laureates:
+  - name: 約翰・霍普菲爾德
+    original: John J. Hopfield
+    country: 美國
+    life: 1933–
+  - name: 傑佛瑞・辛頓
+    original: Geoffrey E. Hinton
+    country: 英國、加拿大
+    life: 1947–
+citation: 表彰他們的基礎發現與發明，使人工神經網路的機器學習成為可能。
+citation_original: for foundational discoveries and inventions that enable machine learning with artificial neural networks
+cover_character: neuron-happy
+tags: [人工智慧, 機器學習, 神經網路, 統計物理, 自旋玻璃]
+status:
+  L1: draft
+  L2: draft
+  L3: draft
+related:
+  - year: 1906
+    field: medicine
+    title: 神經系統的結構
+    note: 高基與卡哈爾讓人看見大腦由一個個神經元組成。
+  - year: 1963
+    field: medicine
+    title: 神經衝動的機制
+    note: 艾克爾斯、霍奇金、赫胥黎解開神經元如何傳遞訊號。
+  - year: 2021
+    field: physics
+    title: 複雜系統與自旋玻璃
+    note: 帕里西研究無序系統的物理，正是霍普菲爾德網路的數學親戚。
+  - year: 2024
+    field: chemistry
+    title: 蛋白質設計與結構預測
+    note: 同一年，用神經網路預測蛋白質結構的 AlphaFold 獲得化學獎。
+sources:
+  - title: NobelPrize.org — The Nobel Prize in Physics 2024
+    url: https://www.nobelprize.org/prizes/physics/2024/summary/
+  - title: NobelPrize.org — Popular information：They used physics to find patterns in information
+    url: https://www.nobelprize.org/prizes/physics/2024/popular-information/
+  - title: J. J. Hopfield (1982). Neural networks and physical systems with emergent collective computational abilities. PNAS 79, 2554–2558.
+    url: https://doi.org/10.1073/pnas.79.8.2554
+  - title: D. H. Ackley, G. E. Hinton, T. J. Sejnowski (1985). A learning algorithm for Boltzmann machines. Cognitive Science 9, 147–169.
+    url: https://doi.org/10.1207/s15516709cog0901_7

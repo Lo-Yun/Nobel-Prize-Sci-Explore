@@ -83,6 +83,12 @@ static/js/interactives/ 每個互動元件一個檔案，頁面只會載入有�
 | 1915 物理：布拉格定律 | `bragg-law`（對齊就笑臉） | `bragg-law`（路程差、d、λ） | `bragg-law`（強度掃描、實際數值） |
 | 1979 醫學：電腦斷層 | `ct-shadows` | `ct-shadows` ＋ `ct-reconstruct` | `ct-reconstruct`（濾波反投影、誤差） |
 
+## 2024 物理學獎：人工神經網路
+
+| L1 互動 | L2 互動 | L3 互動 |
+|---|---|---|
+| `hopfield-memory`（塗鴉後回想）＋ `energy-ball`（球滾下山） | 加上選擇記憶與能量條 | 加上容量測試、溫度、重疊度與能量曲線；`energy-ball` 改成 Metropolis 取樣與模擬退火 |
+
 互動元件會自動讀取頁面的程度（`data-level`），依程度顯示不同的功能。
 
 ## 下一步

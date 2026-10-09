@@ -55,3 +55,21 @@ cormack:
   side: right
   available_moods: [default, happy]
   moods: { 預設: default, 開心: happy }
+neuron:
+  name: 小元
+  image: neuron
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }
+hopfield:
+  name: 霍普菲爾德
+  image: hopfield
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }
+hinton:
+  name: 辛頓
+  image: hinton
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }
