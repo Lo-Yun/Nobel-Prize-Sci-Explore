@@ -73,3 +73,27 @@ hinton:
   side: right
   available_moods: [default, happy]
   moods: { 預設: default, 開心: happy }
+protein:
+  name: 珠珠
+  image: protein
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }
+baker:
+  name: 貝克
+  image: baker
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }
+hassabis:
+  name: 哈薩比斯
+  image: hassabis
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }
+jumper:
+  name: 江珀
+  image: jumper
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }

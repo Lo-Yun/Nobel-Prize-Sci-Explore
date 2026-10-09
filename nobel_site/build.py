@@ -97,7 +97,9 @@ def render_home(lang: str, root: str, env=None) -> str:
     by_field = {f: [p for p in prizes if p.field == f] for f in cfg.get("fields", [])}
     series = {}
     for key in (ui.get("series") or {}):
-        members = sorted((p for p in prizes if key in (p.meta.get("series") or [])), key=lambda p: p.year)
+        order = cfg.get("fields", [])
+        members = sorted((p for p in prizes if key in (p.meta.get("series") or [])),
+                         key=lambda p: (p.year, order.index(p.field) if p.field in order else 99))
         if members:
             series[key] = members
     return env.get_template("home.html").render(

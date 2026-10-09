@@ -253,6 +253,9 @@ SCIENTISTS = {
     "hounsfield": dict(hair="bald", hair_color="#b9b2a8", mustache=False, beard=False, glasses=False, suit="#55606e", old=True),
     "hopfield": dict(hair="bald", hair_color="#e4e0d8", mustache=False, beard=False, glasses=False, suit="#3d5c4a", old=True),
     "hinton":   dict(hair="swept", hair_color="#b8b2aa", mustache=False, beard=False, glasses=False, suit="#38404f", old=True),
+    "baker":    dict(hair="side", hair_color="#8c7b6b", mustache=False, beard=False, glasses=False, suit="#5a6e3d"),
+    "hassabis": dict(hair="swept", hair_color="#3e342e", mustache=False, beard=False, glasses=False, suit="#2f3b52"),
+    "jumper":   dict(hair="side", hair_color="#5b4636", mustache=False, beard=False, glasses=False, suit="#7a4b5a"),
     "cormack":  dict(hair="swept", hair_color="#9a948c", mustache=False, beard=False, glasses=True, suit="#6b5a4a"),
 }
 
@@ -373,6 +376,35 @@ def draw_neuron(mood):
     return svg("0 0 160 210", "\n".join(b), seed=12)
 
 
+# ---------------------------------------------------------------- 珠珠（蛋白質珠珠鏈）
+def draw_protein(mood):
+    """珠珠：一條胺基酸珠珠鏈，摺成捲捲的形狀。橘色＝怕水，藍色＝喜歡水。"""
+    import math
+    b = []
+    pts = []
+    for i in range(11):  # 由外往內的螺旋
+        a = 2.4 - i * 0.62
+        r = 58 - i * 3.6
+        pts.append((86 + r * math.cos(a), 92 + r * math.sin(a)))
+    d = "M" + " L".join(f"{x:.1f} {y:.1f}" for x, y in pts)
+    b.append(line(d, width=5))
+    colors = ["#7cc3e8", "#f2a33d", "#7cc3e8", "#f2a33d", "#f2a33d", "#7cc3e8", "#f2a33d", "#7cc3e8", "#f2a33d", "#7cc3e8"]
+    for (x, y), col in zip(reversed(pts[1:]), colors):
+        b.append(shape("circle", col, hatch=0.08, stroke=1.8, cx=f"{x:.1f}", cy=f"{y:.1f}", r=11))
+    hx, hy = pts[0]
+    b.append(shape("circle", "#a3d9a0", hatch=0.08, cx=f"{hx:.1f}", cy=f"{hy:.1f}", r=22))
+    if mood == "happy":
+        b.append(line(f"M{hx-11:.1f} {hy-2:.1f} Q{hx-6:.1f} {hy-9:.1f} {hx-1:.1f} {hy-2:.1f}", width=2.8))
+        b.append(line(f"M{hx+3:.1f} {hy-2:.1f} Q{hx+8:.1f} {hy-9:.1f} {hx+13:.1f} {hy-2:.1f}", width=2.8))
+    else:
+        for dx in (-6, 8):
+            b.append(f'<circle cx="{hx+dx:.1f}" cy="{hy-3:.1f}" r="4" fill="{INK}"/><circle cx="{hx+dx+1.4:.1f}" cy="{hy-4.6:.1f}" r="1.4" fill="#fff"/>')
+    b.append(line(f"M{hx-5:.1f} {hy+7:.1f} Q{hx+1:.1f} {hy+12:.1f} {hx+7:.1f} {hy+7:.1f}", width=2.4))
+    b.append(f'<ellipse cx="{hx-14:.1f}" cy="{hy+5:.1f}" rx="4.5" ry="3" fill="{PALETTE["cheek"]}" opacity=".6"/>')
+    b.append(f'<ellipse cx="{hx+16:.1f}" cy="{hy+5:.1f}" rx="4.5" ry="3" fill="{PALETTE["cheek"]}" opacity=".6"/>')
+    return svg("0 0 170 170", "\n".join(b), seed=14)
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     jobs = {
@@ -381,6 +413,7 @@ def main():
         "rontgen": (draw_rontgen, ["default", "happy"]),
         "crystal": (draw_crystal, ["default", "happy"]),
         "neuron": (draw_neuron, ["default", "happy"]),
+        "protein": (draw_protein, ["default", "happy"]),
     }
     for name, params in SCIENTISTS.items():
         jobs[name] = ((lambda p: (lambda mood: draw_scientist(mood, **p)))(params), ["default", "happy"])

@@ -1,0 +1,56 @@
+year: 2024
+field: chemistry
+title: 解開蛋白質摺疊的密碼
+subtitle: 計算蛋白質設計與蛋白質結構預測
+series: [ai]
+laureates:
+  - name: 大衛・貝克
+    original: David Baker
+    country: 美國
+    life: 1962–
+  - name: 戴密斯・哈薩比斯
+    original: Demis Hassabis
+    country: 英國
+    life: 1976–
+  - name: 約翰・江珀
+    original: John M. Jumper
+    country: 美國
+    life: 1985–
+citation: 一半頒給貝克，表彰他在計算蛋白質設計的貢獻；另一半由哈薩比斯與江珀共享，表彰他們在蛋白質結構預測的貢獻。
+citation_original: one half to David Baker "for computational protein design", the other half jointly to Demis Hassabis and John M. Jumper "for protein structure prediction"
+cover_character: protein-happy
+tags: [蛋白質, 結構預測, AlphaFold, 蛋白質設計, 人工智慧]
+status:
+  L1: draft
+  L2: draft
+  L3: draft
+related:
+  - year: 2024
+    field: physics
+    title: 人工神經網路
+    note: 同一年的物理學獎，頒給了讓機器學習成為可能的神經網路。
+  - year: 1915
+    field: physics
+    title: 用 X 光分析晶體結構
+    note: 過去要知道蛋白質的形狀，主要靠 X 光晶體學。
+  - year: 1962
+    field: chemistry
+    title: 第一批蛋白質結構
+    note: 佩魯茲與肯德魯用 X 光解出血紅素和肌紅素的立體結構。
+  - year: 1972
+    field: chemistry
+    title: 胺基酸序列決定蛋白質形狀
+    note: 安芬森證明蛋白質能自己摺回原本的形狀。
+  - year: 2017
+    field: chemistry
+    title: 冷凍電子顯微鏡
+    note: 另一種看見蛋白質結構的實驗方法。
+sources:
+  - title: NobelPrize.org — The Nobel Prize in Chemistry 2024
+    url: https://www.nobelprize.org/prizes/chemistry/2024/summary/
+  - title: NobelPrize.org — Popular information：They cracked the code for proteins' amazing structures
+    url: https://www.nobelprize.org/prizes/chemistry/2024/popular-information/
+  - title: B. Kuhlman et al. (2003). Design of a novel globular protein fold with atomic-level accuracy. Science 302, 1364–1368.
+    url: https://doi.org/10.1126/science.1089427
+  - title: J. Jumper et al. (2021). Highly accurate protein structure prediction with AlphaFold. Nature 596, 583–589.
+    url: https://doi.org/10.1038/s41586-021-03819-2

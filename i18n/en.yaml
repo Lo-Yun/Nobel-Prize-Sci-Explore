@@ -33,7 +33,7 @@ review_badge: In review
 draft_notice: This page is still being reviewed and may change.
 sources: Sources
 related: The science relay
-related_hint: Which Nobel Prizes from other years is this discovery connected to?
+related_hint: Which Nobel Prizes is this discovery connected to?
 coming_soon: Coming soon
 more_coming: More classic prizes are on the way.
 progress_title: My progress
@@ -50,5 +50,8 @@ series:
   xray:
     name: The X-ray relay
     desc: From a glowing screen to crystal structures and CT scanners.
+  ai:
+    name: AI meets science
+    desc: Physics built learning neural networks; neural networks then cracked the protein folding problem.
 license_content: "Text and illustrations:"
 source_code: Source code (MIT)

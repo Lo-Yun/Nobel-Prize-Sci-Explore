@@ -14,6 +14,7 @@ laureates:
 citation: 表彰他們的基礎發現與發明，使人工神經網路的機器學習成為可能。
 citation_original: for foundational discoveries and inventions that enable machine learning with artificial neural networks
 cover_character: neuron-happy
+series: [ai]
 tags: [人工智慧, 機器學習, 神經網路, 統計物理, 自旋玻璃]
 status:
   L1: draft
