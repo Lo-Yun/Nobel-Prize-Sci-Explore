@@ -50,3 +50,5 @@ series:
   xray:
     name: X 光接力棒
     desc: 從一塊發亮的螢光幕開始，X 光一路接力：證明自己是波、量出原子的排列，最後變成醫院裡的電腦斷層掃描。
+license_content: 文章與插圖採用
+source_code: 原始碼（MIT 授權）

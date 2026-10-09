@@ -16,3 +16,6 @@ fields: [physics, chemistry, medicine]
 show_drafts: true
 
 output_dir: _site
+
+# 原始碼網址（顯示在網頁頁尾）
+repo_url: https://github.com/Lo-Yun/Nobel-Prize-Sci-Explore

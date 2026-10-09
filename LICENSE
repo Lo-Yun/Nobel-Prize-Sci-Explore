@@ -1,0 +1,37 @@
+本專案採用雙重授權：
+
+  * 程式碼（Python、JavaScript、CSS、HTML 版型、工具程式）：MIT 授權，全文如下。
+  * 文章內容與插圖（content/、static/img/、planning/ 中的文字與圖片）：
+    創用 CC 姓名標示-非商業性-相同方式分享 4.0 國際（CC BY-NC-SA 4.0），
+    全文見 LICENSE-CONTENT。
+
+This project is dual-licensed:
+
+  * Source code (Python, JavaScript, CSS, HTML templates, tools): MIT License, below.
+  * Written content and illustrations (text and images in content/, static/img/
+    and planning/): Creative Commons Attribution-NonCommercial-ShareAlike 4.0
+    International (CC BY-NC-SA 4.0). See LICENSE-CONTENT.
+
+--------------------------------------------------------------------------------
+
+MIT License
+
+Copyright (c) 2026 Lo-Yun
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

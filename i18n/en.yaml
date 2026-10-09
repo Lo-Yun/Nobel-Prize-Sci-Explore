@@ -50,3 +50,5 @@ series:
   xray:
     name: The X-ray relay
     desc: From a glowing screen to crystal structures and CT scanners.
+license_content: "Text and illustrations:"
+source_code: Source code (MIT)

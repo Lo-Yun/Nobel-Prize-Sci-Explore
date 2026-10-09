@@ -68,3 +68,10 @@ python studio.py       # 開啟文稿工作室（瀏覽器打開 http://127.0.0.
 ```
 
 文稿語法、文稿工作室的使用方式，以及新增語言的步驟，請見[編輯指南](docs/editing-guide.md)。
+
+## 授權
+
+- **文章與插圖**（`content/`、`static/img/`、`planning/`）：[創用 CC 姓名標示-非商業性-相同方式分享 4.0 國際](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hant)（CC BY-NC-SA 4.0）。歡迎在課堂與非商業用途中使用、改編，請註明出處，並以相同授權分享。
+- **程式碼**：[MIT 授權](LICENSE)。
+
+詳見 [LICENSE](LICENSE) 與 [LICENSE-CONTENT](LICENSE-CONTENT)。
