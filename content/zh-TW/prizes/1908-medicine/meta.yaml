@@ -1,0 +1,47 @@
+year: 1908
+field: medicine
+title: 身體裡的警衛隊
+subtitle: 吞噬細胞、抗體與發炎的真相
+laureates:
+  - name: 伊利亞・梅契尼可夫
+    original: Ilya Ilyich Mechnikov（Élie Metchnikoff）
+    country: 俄羅斯帝國（後在法國工作）
+    life: 1845–1916
+  - name: 保羅・艾利希
+    original: Paul Ehrlich
+    country: 德國
+    life: 1854–1915
+citation: 表彰他們在免疫方面的研究。
+citation_original: in recognition of their work on immunity
+cover_character: phagocyte-happy
+tags: [免疫, 發炎, 吞噬作用, 抗體, 側鏈理論]
+status:
+  L1: draft
+  L2: draft
+  L3: draft
+related:
+  - year: 1901
+    field: medicine
+    title: 白喉血清療法
+    note: 馮・貝林用抗毒素治療白喉，艾利希幫忙把血清的效力標準化。
+  - year: 1972
+    field: medicine
+    title: 抗體的化學結構
+    note: 艾德曼與波特解開抗體的 Y 形結構。
+  - year: 1984
+    field: medicine
+    title: 單株抗體
+    note: 科勒與米爾斯坦做出單一種抗體，艾利希的「魔法子彈」終於成真。
+  - year: 2011
+    field: medicine
+    title: 先天免疫的啟動
+    note: 博伊特勒、霍夫曼與史坦曼找到警衛細胞辨認敵人的機制，接續梅契尼可夫的研究。
+sources:
+  - title: NobelPrize.org — The Nobel Prize in Physiology or Medicine 1908
+    url: https://www.nobelprize.org/prizes/medicine/1908/summary/
+  - title: NobelPrize.org — Ilya Mechnikov, Nobel Lecture (1908). On the present state of the question of immunity in infectious diseases.
+    url: https://www.nobelprize.org/prizes/medicine/1908/mechnikov/lecture/
+  - title: NobelPrize.org — Paul Ehrlich, Nobel Lecture (1908). Partial cell functions.
+    url: https://www.nobelprize.org/prizes/medicine/1908/ehrlich/lecture/
+  - title: "S. H. E. Kaufmann (2008). Immunology's foundation: the 100-year anniversary of the Nobel Prize to Paul Ehrlich and Elie Metchnikoff. Nature Immunology 9, 705–712."
+    url: https://doi.org/10.1038/ni0708-705

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 170">
+<defs>
+  <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="16" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <filter id="rough2" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="21" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="G" yChannelSelector="R"/>
+  </filter>
+  <filter id="pencil" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11" result="grain"/>
+    <feColorMatrix in="grain" type="matrix"
+      values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.2 1.75" result="mask"/>
+    <feComposite in="SourceGraphic" in2="mask" operator="in" result="tex"/>
+    <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="16" result="n"/>
+    <feDisplacementMap in="tex" in2="n" scale="3.2" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(38)">
+    <line x1="0" y1="0" x2="0" y2="5" stroke="#3a2e2a" stroke-width="1.1"/>
+  </pattern>
+</defs>
+<path d="M70 96 L36 44 Q32 36 40 32 Q48 28 52 36 L82 86 Z" fill="#6fb48f" filter="url(#pencil)"/>
+<path d="M70 96 L36 44 Q32 36 40 32 Q48 28 52 36 L82 86 Z" fill="url(#hatch)" opacity="0.1" filter="url(#rough)"/>
+<path d="M70 96 L36 44 Q32 36 40 32 Q48 28 52 36 L82 86 Z" fill="none" stroke="#3a2e2a" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" filter="url(#rough)"/>
+<path d="M70 96 L36 44 Q32 36 40 32 Q48 28 52 36 L82 86 Z" fill="none" stroke="#3a2e2a" stroke-width="1.08" opacity=".55" stroke-linecap="round" filter="url(#rough2)" transform="translate(1.2 -0.8) "/>
+<path d="M100 96 L134 44 Q138 36 130 32 Q122 28 118 36 L88 86 Z" fill="#6fb48f" filter="url(#pencil)"/>
+<path d="M100 96 L134 44 Q138 36 130 32 Q122 28 118 36 L88 86 Z" fill="url(#hatch)" opacity="0.1" filter="url(#rough)"/>
+<path d="M100 96 L134 44 Q138 36 130 32 Q122 28 118 36 L88 86 Z" fill="none" stroke="#3a2e2a" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" filter="url(#rough)"/>
+<path d="M100 96 L134 44 Q138 36 130 32 Q122 28 118 36 L88 86 Z" fill="none" stroke="#3a2e2a" stroke-width="1.08" opacity=".55" stroke-linecap="round" filter="url(#rough2)" transform="translate(1.2 -0.8) "/>
+<path d="M70 90 Q85 80 100 90 L98 150 Q85 160 72 150 Z" fill="#8fc9a8" filter="url(#pencil)"/>
+<path d="M70 90 Q85 80 100 90 L98 150 Q85 160 72 150 Z" fill="url(#hatch)" opacity="0.1" filter="url(#rough)"/>
+<path d="M70 90 Q85 80 100 90 L98 150 Q85 160 72 150 Z" fill="none" stroke="#3a2e2a" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" filter="url(#rough)"/>
+<path d="M70 90 Q85 80 100 90 L98 150 Q85 160 72 150 Z" fill="none" stroke="#3a2e2a" stroke-width="1.08" opacity=".55" stroke-linecap="round" filter="url(#rough2)" transform="translate(1.2 -0.8) "/>
+<path d="M34 30 Q28 22 36 18 M50 30 Q56 22 48 18" fill="none" stroke="#4c8a68" stroke-width="3" opacity="1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<path d="M120 30 Q114 22 122 18 M136 30 Q142 22 134 18" fill="none" stroke="#4c8a68" stroke-width="3" opacity="1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<path d="M75 112 Q79 106 83 112" fill="none" stroke="#3a2e2a" stroke-width="2.6" opacity="1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<path d="M88 112 Q92 106 96 112" fill="none" stroke="#3a2e2a" stroke-width="2.6" opacity="1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<path d="M79 122 Q85.5 128 92 122" fill="none" stroke="#3a2e2a" stroke-width="2.4" opacity="1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/></svg>

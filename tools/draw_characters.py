@@ -256,6 +256,8 @@ SCIENTISTS = {
     "baker":    dict(hair="side", hair_color="#8c7b6b", mustache=False, beard=False, glasses=False, suit="#5a6e3d"),
     "hassabis": dict(hair="swept", hair_color="#3e342e", mustache=False, beard=False, glasses=False, suit="#2f3b52"),
     "jumper":   dict(hair="side", hair_color="#5b4636", mustache=False, beard=False, glasses=False, suit="#7a4b5a"),
+    "mechnikov": dict(hair="swept", hair_color="#4a3b33", mustache=True, beard=True, glasses=True, suit="#4f5560"),
+    "ehrlich":  dict(hair="bald", hair_color="#6b5a4c", mustache=True, beard=True, glasses=True, suit="#5b4b45"),
     "cormack":  dict(hair="swept", hair_color="#9a948c", mustache=False, beard=False, glasses=True, suit="#6b5a4a"),
 }
 
@@ -405,6 +407,51 @@ def draw_protein(mood):
     return svg("0 0 170 170", "\n".join(b), seed=14)
 
 
+# ---------------------------------------------------------------- 小噬（吞噬細胞）
+def draw_phagocyte(mood):
+    """小噬：一顆嗜中性白血球。軟軟的身體會伸出偽足，裡面有分好幾瓣的細胞核。"""
+    b = []
+    body = "M30 92 Q22 56 52 40 Q74 22 100 34 Q132 30 142 58 Q160 82 146 108 Q150 138 118 146 Q90 160 64 146 Q30 140 30 112 Q16 104 30 92 Z"
+    b.append(shape("path", "#f6efe4", hatch=0.1, d=body))
+    # 分葉的細胞核（紫色）
+    for cx, cy, r in ((70, 112, 13), (92, 120, 12), (114, 110, 11)):
+        b.append(shape("circle", "#b59ad8", hatch=0.12, stroke=1.6, cx=cx, cy=cy, r=r))
+    # 顆粒
+    for x, y in ((56, 70), (128, 76), (110, 56), (48, 98), (136, 102), (80, 64)):
+        b.append(f'<circle cx="{x}" cy="{y}" r="2.4" fill="#e3b4c8"/>')
+    # 臉
+    if mood == "happy":
+        b.append(line("M70 84 Q77 76 84 84", width=3))
+        b.append(line("M98 84 Q105 76 112 84", width=3))
+    else:
+        for cx in (77, 105):
+            b.append(f'<circle cx="{cx}" cy="82" r="5.5" fill="{INK}"/><circle cx="{cx + 1.8}" cy="80" r="1.9" fill="#fff"/>')
+    b.append(line("M82 94 Q91 104 100 94", width=2.8))
+    b.append(f'<ellipse cx="64" cy="94" rx="6" ry="4" fill="{PALETTE["cheek"]}" opacity=".6"/>')
+    b.append(f'<ellipse cx="118" cy="94" rx="6" ry="4" fill="{PALETTE["cheek"]}" opacity=".6"/>')
+    return svg("0 0 170 170", "\n".join(b), seed=15)
+
+
+# ---------------------------------------------------------------- 小Y（抗體）
+def draw_antibody(mood):
+    """小Y：一個 Y 字形的抗體，兩隻手臂的末端可以抓住特定形狀的敵人。"""
+    b = []
+    col, arm = "#8fc9a8", "#6fb48f"
+    b.append(shape("path", arm, hatch=0.1, d="M70 96 L36 44 Q32 36 40 32 Q48 28 52 36 L82 86 Z"))
+    b.append(shape("path", arm, hatch=0.1, d="M100 96 L134 44 Q138 36 130 32 Q122 28 118 36 L88 86 Z"))
+    b.append(shape("path", col, hatch=0.1, d="M70 90 Q85 80 100 90 L98 150 Q85 160 72 150 Z"))
+    # 手臂末端的「夾子」
+    b.append(line("M34 30 Q28 22 36 18 M50 30 Q56 22 48 18", width=3, color="#4c8a68"))
+    b.append(line("M120 30 Q114 22 122 18 M136 30 Q142 22 134 18", width=3, color="#4c8a68"))
+    if mood == "happy":
+        b.append(line("M75 112 Q79 106 83 112", width=2.6))
+        b.append(line("M88 112 Q92 106 96 112", width=2.6))
+    else:
+        b.append(f'<circle cx="79" cy="111" r="3.6" fill="{INK}"/><circle cx="92" cy="111" r="3.6" fill="{INK}"/>')
+    b.append(line("M79 122 Q85.5 128 92 122", width=2.4))
+    return svg("0 0 170 170", "\n".join(b), seed=16)
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     jobs = {
@@ -414,6 +461,8 @@ def main():
         "crystal": (draw_crystal, ["default", "happy"]),
         "neuron": (draw_neuron, ["default", "happy"]),
         "protein": (draw_protein, ["default", "happy"]),
+        "phagocyte": (draw_phagocyte, ["default", "happy"]),
+        "antibody": (draw_antibody, ["default", "happy"]),
     }
     for name, params in SCIENTISTS.items():
         jobs[name] = ((lambda p: (lambda mood: draw_scientist(mood, **p)))(params), ["default", "happy"])

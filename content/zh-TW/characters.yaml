@@ -97,3 +97,27 @@ jumper:
   side: right
   available_moods: [default, happy]
   moods: { 預設: default, 開心: happy }
+mechnikov:
+  name: 梅契尼可夫
+  image: mechnikov
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }
+ehrlich:
+  name: 艾利希
+  image: ehrlich
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }
+phagocyte:
+  name: 小噬
+  image: phagocyte
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }
+antibody:
+  name: 小Y
+  image: antibody
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }
