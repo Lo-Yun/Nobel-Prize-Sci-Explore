@@ -207,6 +207,17 @@ def site(name="index.html"):
     return send_from_directory(ROOT / "_site", name)
 
 
+@app.get("/review")
+def review():
+    """審稿清單（docs/review-checklist.md）。"""
+    import markdown as md
+    path = ROOT / "docs" / "review-checklist.md"
+    text = path.read_text(encoding="utf-8") if path.exists() else "（找不到 docs/review-checklist.md）"
+    html = md.markdown(text, extensions=["tables", "sane_lists"])
+    html = html.replace("<li>[ ] ", '<li class="todo">☐ ').replace("<li>[x] ", '<li class="done">☑ ').replace("<li>[X] ", '<li class="done">☑ ')
+    return render_template("review.html", html=html)
+
+
 @app.get("/candidates")
 def candidates():
     path = ROOT / "planning" / "classic-candidates.yaml"
