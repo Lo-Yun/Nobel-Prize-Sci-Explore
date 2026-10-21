@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 170">
+<defs>
+  <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="18" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <filter id="rough2" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="23" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="G" yChannelSelector="R"/>
+  </filter>
+  <filter id="pencil" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11" result="grain"/>
+    <feColorMatrix in="grain" type="matrix"
+      values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.2 1.75" result="mask"/>
+    <feComposite in="SourceGraphic" in2="mask" operator="in" result="tex"/>
+    <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="18" result="n"/>
+    <feDisplacementMap in="tex" in2="n" scale="3.2" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(38)">
+    <line x1="0" y1="0" x2="0" y2="5" stroke="#3a2e2a" stroke-width="1.1"/>
+  </pattern>
+</defs>
+<circle cx="85" cy="88" r="56" fill="#a9cdea" filter="url(#pencil)"/>
+<circle cx="85" cy="88" r="56" fill="url(#hatch)" opacity="0.1" filter="url(#rough)"/>
+<circle cx="85" cy="88" r="56" fill="none" stroke="#3a2e2a" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" filter="url(#rough)"/>
+<circle cx="85" cy="88" r="56" fill="none" stroke="#3a2e2a" stroke-width="1.08" opacity=".55" stroke-linecap="round" filter="url(#rough2)" transform="translate(1.2 -0.8) "/>
+<path d="M141.0 88.0 L153.0 88.0" fill="none" stroke="#3d6fb6" stroke-width="3" opacity="1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<circle cx="153.0" cy="88.0" r="3.5" fill="#3d6fb6"/>
+<path d="M130.3 120.9 L140.0 128.0" fill="none" stroke="#3d6fb6" stroke-width="3" opacity="1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<circle cx="140.0" cy="128.0" r="3.5" fill="#3d6fb6"/>
+<path d="M102.3 141.3 L106.0 152.7" fill="none" stroke="#3d6fb6" stroke-width="3" opacity="1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<circle cx="106.0" cy="152.7" r="3.5" fill="#3d6fb6"/>
+<path d="M67.7 141.3 L64.0 152.7" fill="none" stroke="#3d6fb6" stroke-width="3" opacity="1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<circle cx="64.0" cy="152.7" r="3.5" fill="#3d6fb6"/>
+<path d="M39.7 120.9 L30.0 128.0" fill="none" stroke="#3d6fb6" stroke-width="3" opacity="1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<circle cx="30.0" cy="128.0" r="3.5" fill="#3d6fb6"/>
+<path d="M29.0 88.0 L17.0 88.0" fill="none" stroke="#3d6fb6" stroke-width="3" opacity="1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<circle cx="17.0" cy="88.0" r="3.5" fill="#3d6fb6"/>
+<path d="M39.7 55.1 L30.0 48.0" fill="none" stroke="#3d6fb6" stroke-width="3" opacity="1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<circle cx="30.0" cy="48.0" r="3.5" fill="#3d6fb6"/>
+<path d="M67.7 34.7 L64.0 23.3" fill="none" stroke="#3d6fb6" stroke-width="3" opacity="1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<circle cx="64.0" cy="23.3" r="3.5" fill="#3d6fb6"/>
+<path d="M102.3 34.7 L106.0 23.3" fill="none" stroke="#3d6fb6" stroke-width="3" opacity="1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<circle cx="106.0" cy="23.3" r="3.5" fill="#3d6fb6"/>
+<path d="M130.3 55.1 L140.0 48.0" fill="none" stroke="#3d6fb6" stroke-width="3" opacity="1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<circle cx="140.0" cy="48.0" r="3.5" fill="#3d6fb6"/>
+<path d="M60 70 L76 74" fill="none" stroke="#3a2e2a" stroke-width="3" opacity="1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<path d="M108 70 L92 74" fill="none" stroke="#3a2e2a" stroke-width="3" opacity="1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<circle cx="69" cy="82" r="5" fill="#3a2e2a"/><circle cx="70.6" cy="80" r="1.7" fill="#fff"/>
+<circle cx="99" cy="82" r="5" fill="#3a2e2a"/><circle cx="100.6" cy="80" r="1.7" fill="#fff"/>
+<path d="M72 98 Q84 106 96 98" fill="none" stroke="#3a2e2a" stroke-width="2.6" opacity="1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"/>
+<text x="85" y="58" text-anchor="middle" font-size="18" font-weight="700" fill="#3a2e2a">T</text></svg>

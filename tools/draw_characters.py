@@ -258,6 +258,15 @@ SCIENTISTS = {
     "jumper":   dict(hair="side", hair_color="#5b4636", mustache=False, beard=False, glasses=False, suit="#7a4b5a"),
     "mechnikov": dict(hair="swept", hair_color="#4a3b33", mustache=True, beard=True, glasses=True, suit="#4f5560"),
     "ehrlich":  dict(hair="bald", hair_color="#6b5a4c", mustache=True, beard=True, glasses=True, suit="#5b4b45"),
+    "behring":  dict(hair="side", hair_color="#5a4a3c", mustache=True, beard=False, glasses=False, suit="#46505e"),
+    "kitasato": dict(hair="side", hair_color="#2e2824", mustache=True, beard=False, glasses=False, suit="#3b4a3e"),
+    "kohler":   dict(hair="side", hair_color="#6b5444", mustache=False, beard=True, glasses=False, suit="#5c6b7a"),
+    "milstein": dict(hair="bald", hair_color="#9a9088", mustache=False, beard=False, glasses=True, suit="#5b4f45", old=True),
+    "hoffmann": dict(hair="swept", hair_color="#bdb6ad", mustache=False, beard=False, glasses=True, suit="#3e4f6a", old=True),
+    "beutler":  dict(hair="side", hair_color="#8e8378", mustache=False, beard=False, glasses=True, suit="#4d5a3f"),
+    "steinman": dict(hair="bald", hair_color="#a49a90", mustache=False, beard=False, glasses=True, suit="#5a4a5c", old=True),
+    "allison":  dict(hair="swept", hair_color="#b0a89e", mustache=True, beard=True, glasses=False, suit="#4b4f63"),
+    "honjo":    dict(hair="side", hair_color="#d8d4ce", mustache=False, beard=False, glasses=True, suit="#3f4b5c", old=True),
     "cormack":  dict(hair="swept", hair_color="#9a948c", mustache=False, beard=False, glasses=True, suit="#6b5a4a"),
 }
 
@@ -452,6 +461,79 @@ def draw_antibody(mood):
     return svg("0 0 170 170", "\n".join(b), seed=16)
 
 
+# ---------------------------------------------------------------- 阿駿（製造血清的馬）
+def draw_horse(mood):
+    """阿駿：一匹溫和的馬。早期的白喉抗毒素血清就是從馬的血液中取得的。"""
+    b = []
+    body, mane, dark = "#c99a6b", "#7a5236", "#5a3c28"
+    b.append(shape("path", mane, hatch=0.25, d="M70 30 Q60 10 84 14 Q96 24 98 44 Q84 54 72 50 Z"))
+    b.append(shape("path", body, hatch=0.1, d="M62 40 Q66 22 90 26 Q118 32 126 66 L140 112 Q144 132 124 138 Q104 142 98 124 L88 92 Q70 92 62 70 Z"))
+    b.append(shape("path", body, hatch=0.1, stroke=1.8, d="M70 34 L62 14 L80 28 Z"))
+    b.append(shape("ellipse", "#e8c9a6", hatch=0.05, stroke=1.6, cx=122, cy=124, rx=20, ry=16))
+    b.append(f'<circle cx="114" cy="126" r="2.6" fill="{dark}"/><circle cx="128" cy="126" r="2.6" fill="{dark}"/>')
+    b.append(shape("path", mane, hatch=0.25, stroke=1.6, d="M74 38 Q60 60 66 84 Q54 70 56 50 Q60 36 74 38 Z"))
+    if mood == "happy":
+        b.append(line("M94 66 Q100 58 106 66", width=3))
+    else:
+        b.append(f'<circle cx="100" cy="64" r="5" fill="{INK}"/><circle cx="101.6" cy="62" r="1.8" fill="#fff"/>')
+    b.append(line("M110 142 Q118 148 128 142", width=2.4))
+    b.append(f'<ellipse cx="96" cy="88" rx="7" ry="4.5" fill="{PALETTE["cheek"]}" opacity=".55"/>')
+    # 胸前的紅十字小包包（血清）
+    b.append(shape("rect", "#fbf7ef", hatch=0, stroke=1.6, x=40, y=110, width=30, height=24, rx=4))
+    b.append('<path d="M55 114 v16 M47 122 h16" stroke="#d9534f" stroke-width="4"/>')
+    b.append(line("M70 118 Q84 112 92 102", width=2, color=dark))
+    return svg("0 0 170 170", "\n".join(b), seed=17)
+
+
+# ---------------------------------------------------------------- 小T（T 細胞）
+def draw_tcell(mood):
+    """小T：一顆殺手 T 細胞，表面有受體，手上拿著會被「踩煞車」的煞車踏板。"""
+    b = []
+    b.append(shape("circle", "#a9cdea", hatch=0.1, cx=85, cy=88, r=56))
+    for i in range(10):  # 表面的受體
+        import math
+        a = i * math.pi * 2 / 10
+        x1, y1 = 85 + 56 * math.cos(a), 88 + 56 * math.sin(a)
+        x2, y2 = 85 + 68 * math.cos(a), 88 + 68 * math.sin(a)
+        b.append(line(f"M{x1:.1f} {y1:.1f} L{x2:.1f} {y2:.1f}", width=3, color="#3d6fb6"))
+        b.append(f'<circle cx="{x2:.1f}" cy="{y2:.1f}" r="3.5" fill="#3d6fb6"/>')
+    if mood == "happy":
+        b.append(line("M62 80 Q69 72 76 80", width=3)); b.append(line("M92 80 Q99 72 106 80", width=3))
+    else:
+        b.append(line("M60 70 L76 74", width=3)); b.append(line("M108 70 L92 74", width=3))  # 認真的眉毛
+        for cx in (69, 99):
+            b.append(f'<circle cx="{cx}" cy="82" r="5" fill="{INK}"/><circle cx="{cx + 1.6}" cy="80" r="1.7" fill="#fff"/>')
+    b.append(line("M72 98 Q84 106 96 98", width=2.6))
+    b.append(f'<text x="85" y="58" text-anchor="middle" font-size="18" font-weight="700" fill="{INK}">T</text>')
+    return svg("0 0 170 170", "\n".join(b), seed=18)
+
+
+# ---------------------------------------------------------------- 小樹（樹突細胞）
+def draw_dendritic(mood):
+    """小樹：一顆樹突細胞，身上長滿樹枝般的突起，負責把敵人的情報帶去給 T 細胞。"""
+    import math
+    b = []
+    pts = []
+    for i in range(16):
+        a = i * math.pi * 2 / 16
+        r = 72 if i % 2 == 0 else 36
+        pts.append(f"{85 + r * math.cos(a):.1f} {88 + r * math.sin(a):.1f}")
+    d = "M" + pts[0] + "".join(f" Q{85 + 30 * math.cos((i - 0.5) * math.pi * 2 / 16):.1f} {88 + 30 * math.sin((i - 0.5) * math.pi * 2 / 16):.1f} {pts[i % 16]}" for i in range(1, 17)) + " Z"
+    b.append(shape("path", "#f6c3a8", hatch=0.1, d=d))
+    b.append(shape("circle", "#f6c3a8", hatch=0.06, stroke=0, cx=85, cy=88, r=34))
+    # 手上拿著的「情報」：敵人碎片
+    b.append(shape("path", "#4f9a3a", hatch=0, stroke=1.4, d="M140 40 l8 -6 l6 8 l-8 6 Z"))
+    if mood == "happy":
+        b.append(line("M70 84 Q76 76 82 84", width=3)); b.append(line("M90 84 Q96 76 102 84", width=3))
+    else:
+        for cx in (76, 96):
+            b.append(f'<circle cx="{cx}" cy="84" r="5" fill="{INK}"/><circle cx="{cx + 1.6}" cy="82" r="1.7" fill="#fff"/>')
+    b.append(line("M76 98 Q86 106 96 98", width=2.6))
+    b.append(f'<ellipse cx="64" cy="96" rx="6" ry="4" fill="{PALETTE["cheek"]}" opacity=".6"/>')
+    b.append(f'<ellipse cx="108" cy="96" rx="6" ry="4" fill="{PALETTE["cheek"]}" opacity=".6"/>')
+    return svg("0 0 170 170", "\n".join(b), seed=19)
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     jobs = {
@@ -463,6 +545,9 @@ def main():
         "protein": (draw_protein, ["default", "happy"]),
         "phagocyte": (draw_phagocyte, ["default", "happy"]),
         "antibody": (draw_antibody, ["default", "happy"]),
+        "horse": (draw_horse, ["default", "happy"]),
+        "tcell": (draw_tcell, ["default", "happy"]),
+        "dendritic": (draw_dendritic, ["default", "happy"]),
     }
     for name, params in SCIENTISTS.items():
         jobs[name] = ((lambda p: (lambda mood: draw_scientist(mood, **p)))(params), ["default", "happy"])

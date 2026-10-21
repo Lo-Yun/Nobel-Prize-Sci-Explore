@@ -237,7 +237,7 @@ img { max-width: 100%; }
   box-shadow: 6px 6px 0 var(--L3); }
 .series h2 { font-size: var(--step-2); margin: 12px 0 0; }
 .series__desc { color: var(--ink-soft); margin: 4px 0 14px; }
-.series__path { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; counter-reset: step; }
+.series__path { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); gap: 12px; counter-reset: step; }
 .series__path li { position: relative; }
 .series__step { display: grid; gap: 2px; padding: 10px 12px; border-radius: 12px; border: 2px solid var(--field); background: var(--paper);
   color: var(--ink); text-decoration: none; line-height: 1.4; height: 100%; }

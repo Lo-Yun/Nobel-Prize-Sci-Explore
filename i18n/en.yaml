@@ -53,5 +53,8 @@ series:
   ai:
     name: AI meets science
     desc: Physics built learning neural networks; neural networks then cracked the protein folding problem.
+  immune:
+    name: The immunity relay
+    desc: From horse serum and hungry white cells to monoclonal antibodies, molecular alarms and cancer immunotherapy.
 license_content: "Text and illustrations:"
 source_code: Source code (MIT)

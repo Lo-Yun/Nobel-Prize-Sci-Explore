@@ -1,0 +1,44 @@
+year: 2018
+field: medicine
+title: 放開免疫的煞車
+subtitle: 免疫檢查點抑制劑與癌症治療
+series: [immune]
+laureates:
+  - name: 詹姆斯・艾利森
+    original: James P. Allison
+    country: 美國
+    life: 1948–
+  - name: 本庶佑
+    original: Tasuku Honjo
+    country: 日本
+    life: 1942–
+citation: 表彰他們發現藉由抑制負向免疫調節來治療癌症。
+citation_original: for their discovery of cancer therapy by inhibition of negative immune regulation
+cover_character: tcell-happy
+tags: [免疫, 癌症, 免疫檢查點, CTLA-4, PD-1, 單株抗體]
+status:
+  L1: draft
+  L2: draft
+  L3: draft
+related:
+  - year: 1908
+    field: medicine
+    title: 吞噬細胞與抗體
+    note: 艾利希早在 1909 年就猜測，免疫系統可能會壓制腫瘤。
+  - year: 1984
+    field: medicine
+    title: 單株抗體
+    note: 放開煞車的藥物，本身就是單株抗體。
+  - year: 2011
+    field: medicine
+    title: 先天免疫與樹突細胞
+    note: 樹突細胞啟動 T 細胞時，同時提供油門與煞車。
+sources:
+  - title: NobelPrize.org — The Nobel Prize in Physiology or Medicine 2018
+    url: https://www.nobelprize.org/prizes/medicine/2018/summary/
+  - title: D. R. Leach, M. F. Krummel, J. P. Allison (1996). Enhancement of antitumor immunity by CTLA-4 blockade. Science 271, 1734–1736.
+    url: https://doi.org/10.1126/science.271.5256.1734
+  - title: Y. Ishida, Y. Agata, K. Shibahara, T. Honjo (1992). Induced expression of PD-1, a novel member of the immunoglobulin gene superfamily, upon programmed cell death. EMBO Journal 11, 3887–3895.
+    url: https://doi.org/10.1002/j.1460-2075.1992.tb05481.x
+  - title: Y. Iwai et al. (2002). Involvement of PD-L1 on tumor cells in the escape from host immune system and tumor immunotherapy by PD-L1 blockade. PNAS 99, 12293–12297.
+    url: https://doi.org/10.1073/pnas.192461099

@@ -121,3 +121,75 @@ antibody:
   side: right
   available_moods: [default, happy]
   moods: { 預設: default, 開心: happy }
+horse:
+  name: 阿駿
+  image: horse
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }
+tcell:
+  name: 小T
+  image: tcell
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }
+dendritic:
+  name: 小樹
+  image: dendritic
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }
+behring:
+  name: 馮・貝林
+  image: behring
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }
+kitasato:
+  name: 北里柴三郎
+  image: kitasato
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }
+kohler:
+  name: 科勒
+  image: kohler
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }
+milstein:
+  name: 米爾斯坦
+  image: milstein
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }
+hoffmann:
+  name: 霍夫曼
+  image: hoffmann
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }
+beutler:
+  name: 博伊特勒
+  image: beutler
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }
+steinman:
+  name: 史坦曼
+  image: steinman
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }
+allison:
+  name: 艾利森
+  image: allison
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }
+honjo:
+  name: 本庶佑
+  image: honjo
+  side: right
+  available_moods: [default, happy]
+  moods: { 預設: default, 開心: happy }

@@ -1,0 +1,50 @@
+year: 1984
+field: medicine
+title: 只抓一種敵人的抗體工廠
+subtitle: 免疫系統的專一性與單株抗體
+series: [immune]
+laureates:
+  - name: 尼爾斯・耶爾納
+    original: Niels K. Jerne
+    country: 丹麥（生於英國）
+    life: 1911–1994
+  - name: 喬治・科勒
+    original: Georges J. F. Köhler
+    country: 德國
+    life: 1946–1995
+  - name: 塞薩爾・米爾斯坦
+    original: César Milstein
+    country: 阿根廷、英國
+    life: 1927–2002
+citation: 表彰他們關於免疫系統發育與調控之專一性的理論，以及發現製造單株抗體的原理。
+citation_original: for theories concerning the specificity in development and control of the immune system and the discovery of the principle for production of monoclonal antibodies
+cover_character: antibody-happy
+tags: [免疫, 抗體, 單株抗體, 融合瘤, 生物科技]
+status:
+  L1: draft
+  L2: draft
+  L3: draft
+related:
+  - year: 1908
+    field: medicine
+    title: 吞噬細胞與抗體
+    note: 艾利希夢想的「魔法子彈」，靠單株抗體成真。
+  - year: 1972
+    field: medicine
+    title: 抗體的化學結構
+    note: 艾德曼與波特解開抗體的 Y 形結構。
+  - year: 1987
+    field: medicine
+    title: 抗體多樣性的遺傳原理
+    note: 利根川進解開身體如何用有限的基因做出無數種抗體。
+  - year: 2018
+    field: medicine
+    title: 免疫檢查點療法
+    note: 放開免疫煞車的癌症藥物，本身就是單株抗體。
+sources:
+  - title: NobelPrize.org — The Nobel Prize in Physiology or Medicine 1984
+    url: https://www.nobelprize.org/prizes/medicine/1984/summary/
+  - title: G. Köhler, C. Milstein (1975). Continuous cultures of fused cells secreting antibody of predefined specificity. Nature 256, 495–497.
+    url: https://doi.org/10.1038/256495a0
+  - title: N. K. Jerne (1955). The natural-selection theory of antibody formation. PNAS 41, 849–857.
+    url: https://doi.org/10.1073/pnas.41.11.849

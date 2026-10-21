@@ -1,0 +1,37 @@
+year: 1901
+field: medicine
+title: 從馬的血液裡借來的救命藥
+subtitle: 血清療法與白喉抗毒素
+series: [immune]
+laureates:
+  - name: 埃米爾・馮・貝林
+    original: Emil von Behring
+    country: 德國
+    life: 1854–1917
+citation: 表彰他在血清療法的研究，特別是用於治療白喉，為醫學開闢了新道路，讓醫生有了對抗疾病與死亡的利器。
+citation_original: for his work on serum therapy, especially its application against diphtheria, by which he has opened a new road in the domain of medical science and thereby placed in the hands of the physician a victorious weapon against illness and deaths
+cover_character: horse-happy
+tags: [免疫, 血清療法, 白喉, 抗毒素, 被動免疫, 第一屆諾貝爾獎]
+status:
+  L1: draft
+  L2: draft
+  L3: draft
+related:
+  - year: 1905
+    field: medicine
+    title: 結核病研究
+    note: 馮・貝林和北里柴三郎都在柯霍的研究所工作。
+  - year: 1908
+    field: medicine
+    title: 吞噬細胞與抗體
+    note: 艾利希替白喉血清訂出標準單位，並提出抗體從哪裡來的理論。
+  - year: 1984
+    field: medicine
+    title: 單株抗體
+    note: 從「一整瓶混合的抗體」到「單一種抗體」。
+sources:
+  - title: NobelPrize.org — The Nobel Prize in Physiology or Medicine 1901
+    url: https://www.nobelprize.org/prizes/medicine/1901/summary/
+  - title: E. Behring, S. Kitasato (1890). Ueber das Zustandekommen der Diphtherie-Immunität und der Tetanus-Immunität bei Thieren. Deutsche Medizinische Wochenschrift 16, 1113–1114.
+  - title: NobelPrize.org — Emil von Behring, Nobel Lecture (1901). Serum therapy in therapeutics and medical science.
+    url: https://www.nobelprize.org/prizes/medicine/1901/behring/lecture/

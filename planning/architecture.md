@@ -103,6 +103,16 @@ static/js/interactives/ 每個互動元件一個檔案，頁面只會載入有�
 |---|---|---|
 | `inflammation-sim`（拖曳小噬吃細菌）＋ `side-chain`（鎖與鑰匙） | 加上紅熱腫痛指標、訊號擴散、細菌分裂速度 | 族群數量圖；`side-chain` 加上 L₀／L₊ 滴定（質量作用定律） |
 
+## 免疫接力棒（系列 `immune`）
+
+| 獎項 | 互動元件 | 程度差異 |
+|---|---|---|
+| 1901 血清療法 | `serum-therapy` | L2 顯示游離毒素與已進入細胞的毒素；L3 可調劑量 |
+| 1908 吞噬細胞與抗體 | `inflammation-sim`、`side-chain` | 見上方 |
+| 1984 單株抗體 | `hybridoma-lab` | L3 加上極限稀釋的卜瓦松計算 |
+| 2011 先天免疫 | `pattern-recognition` | L2 加上樹突細胞與淋巴結；L3 加上 MyD88／TRIF 訊號路徑 |
+| 2018 免疫檢查點 | `checkpoint-sim` | L2 腫瘤大小曲線；L3 腫瘤突變量 |
+
 互動元件會自動讀取頁面的程度（`data-level`），依程度顯示不同的功能。
 
 ## 下一步

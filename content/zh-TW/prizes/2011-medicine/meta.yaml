@@ -1,0 +1,52 @@
+year: 2011
+field: medicine
+title: 身體的警報器和傳令兵
+subtitle: 先天免疫的啟動與樹突細胞
+series: [immune]
+laureates:
+  - name: 布魯斯・博伊特勒
+    original: Bruce A. Beutler
+    country: 美國
+    life: 1957–
+  - name: 朱爾・霍夫曼
+    original: Jules A. Hoffmann
+    country: 法國（生於盧森堡）
+    life: 1941–
+  - name: 拉爾夫・史坦曼
+    original: Ralph M. Steinman
+    country: 加拿大
+    life: 1943–2011
+citation: 一半由博伊特勒與霍夫曼共享，表彰他們發現先天免疫如何啟動；另一半頒給史坦曼，表彰他發現樹突細胞及其在後天免疫中的角色。
+citation_original: one half jointly to Bruce A. Beutler and Jules A. Hoffmann "for their discoveries concerning the activation of innate immunity", the other half to Ralph M. Steinman "for his discovery of the dendritic cell and its role in adaptive immunity"
+cover_character: dendritic-happy
+tags: [免疫, 先天免疫, 類鐸受體, 樹突細胞, 發炎]
+status:
+  L1: draft
+  L2: draft
+  L3: draft
+related:
+  - year: 1908
+    field: medicine
+    title: 吞噬細胞與發炎
+    note: 梅契尼可夫發現了先天免疫的「警衛」，這一次找到了警衛的「眼睛」。
+  - year: 1995
+    field: medicine
+    title: 胚胎發育的基因控制
+    note: Toll 基因最早是在研究果蠅胚胎發育時發現的。
+  - year: 1996
+    field: medicine
+    title: T 細胞如何辨認受感染的細胞
+    note: 杜赫提與辛克納吉發現 T 細胞要透過 MHC 分子辨認抗原，樹突細胞正是用 MHC 把情報交給 T 細胞。
+  - year: 2018
+    field: medicine
+    title: 免疫檢查點療法
+    note: 啟動 T 細胞時的「油門」與「煞車」。
+sources:
+  - title: NobelPrize.org — The Nobel Prize in Physiology or Medicine 2011
+    url: https://www.nobelprize.org/prizes/medicine/2011/summary/
+  - title: B. Lemaitre et al. (1996). The dorsoventral regulatory gene cassette spätzle/Toll/cactus controls the potent antifungal response in Drosophila adults. Cell 86, 973–983.
+    url: https://doi.org/10.1016/S0092-8674(00)80172-5
+  - title: A. Poltorak et al. (1998). Defective LPS signaling in C3H/HeJ and C57BL/10ScCr mice：mutations in Tlr4 gene. Science 282, 2085–2088.
+    url: https://doi.org/10.1126/science.282.5396.2085
+  - title: R. M. Steinman, Z. A. Cohn (1973). Identification of a novel cell type in peripheral lymphoid organs of mice. Journal of Experimental Medicine 137, 1142–1162.
+    url: https://doi.org/10.1084/jem.137.5.1142
